@@ -1,0 +1,14 @@
+{
+  "name": "blank-theme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-autoprefixer": "^3.0.4",
+    "grunt-checktextdomain": "^1.0.1",
+    "grunt-combine-media-queries": "^1.0.20",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-wp-i18n": "^0.5.4",
+    "load-grunt-tasks": "^3.5.2"
+  }
+}
