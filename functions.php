@@ -166,6 +166,16 @@ function blank_theme_widgets_init() {
 		'before_title'  => '<h4 class="widget-title">',
 		'after_title'   => '</h4>',
 	) );
+
+	register_sidebar( array(
+		'name'					=> esc_html__( 'Pages', 'blank-theme' ),
+		'id'						=> 'sidebar-widget-pages',
+		'description'		=> 'sidebar containing widget area for widgets that display pages',
+		'before_widget'	=> '<div id="%1$s" class="st-widget-pages large-3 column %2$s">',
+		'after_widget'	=> '</div>',
+		'before_title'	=> '<h4 class="widget-pages-title">',
+		'after_title'		=> '</h4>',
+	) );
 }
 add_action( 'widgets_init', 'blank_theme_widgets_init' );
 
@@ -234,3 +244,93 @@ do_action( 'blank_theme_after' );
 function simpletheme_scripts() {
 	wp_enqueue_style( 'open-sans-style', 'https://fonts.googleapis.com/css?family=Open+Sans' );
 }
+
+
+
+class My_Widget extends WP_Widget {
+
+    function __construct() {
+
+        parent::__construct(
+            'my-text',  // Base ID
+            'Page Select'   // Name
+        );
+
+        add_action( 'widgets_init', function() {
+            register_widget( 'My_Widget' );
+        });
+
+    }
+
+    public function widget( $args, $instance ) {
+
+				echo $args['before_widget'];
+
+				$page_args = array(
+					'p'	=> $instance['page_id'],
+					'post_type'	=> 'page'
+				);
+
+				global $post;
+
+				$page = new WP_Query( $page_args );
+				$page->the_post();
+
+			?>
+
+				<?php echo get_the_post_thumbnail( $instance['page_id'], array( 99, 99 ), array( 'class' => 'st-widget-post-image')); ?>
+				<h2 class="st-widget-post-title">
+					<?php the_title(); ?>
+				</h2>
+				<p class="st-widget-post-content">
+					<?php echo wp_kses_post( wp_trim_words( get_the_content(), 15 ) ); ?>
+				</p>
+				<a class="st-widget-post-readmore" href="<?php echo the_guid(); ?>"><?php _e( 'Read More', 'blank-theme' ) ?></a>
+
+			<?php
+
+				echo $args['after_widget'];
+
+    }
+
+    public function form( $instance ) {
+
+        $page_id = ! empty( $instance['page_id'] ) ? $instance['page_id'] : esc_html__( '', 'blank-theme' );
+        ?>
+
+				<?php
+
+					$args = array(
+						'include' => array( 40, 42, 44, 47 ),
+						'post_type' => 'page',
+						'post_status' => 'publish'
+					);
+
+					$pages = get_pages( $args );
+
+				?>
+
+				<select id="<?php echo esc_attr( $this->get_field_id( 'page_id' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'page_id' ) ); ?>">
+
+					<?php	foreach ( $pages as $page ) { ?>
+			 				<option <?php selected( $page_id, $page->ID ); ?> value="<?php echo $page->ID; ?>"><?php echo $page->post_title; ?></option>
+					<?php	} ?>
+
+				</select>
+
+        <?php
+
+    }
+
+    public function update( $new_instance, $old_instance ) {
+
+        $instance = array();
+
+        $instance['page_id'] = ( !empty( $new_instance['page_id'] ) ) ? strip_tags( $new_instance['page_id'] ) : '';
+
+        return $instance;
+    }
+
+}
+
+add_action( 'widgets_init', function() { register_widget( 'My_Widget' ); } );

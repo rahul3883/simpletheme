@@ -24,6 +24,10 @@ get_header();
 			</div>
 		</div>
 
+		<div style="width:100%; height:100px; border: 1px solid black;"></div>
+
+		<?php get_sidebar('pages'); ?>
+
 	</main><!-- #main -->
 </div><!-- #primary -->
 

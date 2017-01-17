@@ -1,5 +1,5 @@
 /*
-Theme Name: SimpleTheme
+Theme Name: Blank Theme
 Theme URI: https://rtcamp.com/
 Author: rtCamp
 Author URI: https://rtcamp.com/
@@ -3552,6 +3552,10 @@ textarea {
 	text-align: center;
 }
 
+.st-widget-pages-container {
+	margin: 6.25rem;
+}
+
 /*--------------------------------------------------------------
 ## Widgets
 --------------------------------------------------------------*/
@@ -3579,6 +3583,40 @@ textarea {
 .widget-title {
 	font-size: 1.375rem;
 	line-height: 1.875rem;
+}
+
+.st-widget-pages {
+	text-align: center;
+}
+
+.st-widget-pages * {
+	font-family: "Open Sans", sans-serif;
+}
+
+.st-widget-post-image {
+	border-radius: 100%;
+}
+
+.st-widget-post-title {
+	font-size: 22px;
+	color: #4E525D;
+	margin-top: 20px;
+}
+
+.st-widget-post-content {
+	font-size: 14px;
+	color: #4E525D;
+}
+
+.st-widget-post-readmore {
+	display: inline-block;
+	width: 97px;
+	height: 30px;
+	line-height: 30px;
+	border-radius: 4px;
+	font-size: 14px;
+	color: #FFFFFF;
+	background-color: #49CBCD;
 }
 
 /*--------------------------------------------------------------

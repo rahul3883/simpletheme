@@ -22,3 +22,37 @@
 	font-size: rem-calc(22);
 	line-height: rem-calc(30);
 }
+
+.st-widget-pages {
+	text-align: center;
+}
+
+.st-widget-pages * {
+	font-family: $font-family-simpletheme;
+}
+
+.st-widget-post-image {
+	border-radius: 100%;
+}
+
+.st-widget-post-title {
+	font-size: 22px;
+	color: $color-content;
+	margin-top: 20px;
+}
+
+.st-widget-post-content {
+	font-size: 14px;
+	color: $color-content;
+}
+
+.st-widget-post-readmore {
+	display: inline-block;
+	width: 97px;
+	height: 30px;
+	line-height: 30px;
+	border-radius: 4px;
+	font-size: 14px;
+	color: $white;
+	background-color: $color__theme;
+}
