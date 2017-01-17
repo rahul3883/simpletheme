@@ -12,6 +12,8 @@
 		list-style: none;
 		margin: 0;
 		padding-left: 0;
+		padding-right: 5%;
+		float: right;
 
 		ul {
 			float: left;
@@ -32,6 +34,7 @@
 				&:hover > ul,
 				&.focus > ul {
 					left: 100%;
+					border-bottom: 3px solid $color__link-hover;
 				}
 			}
 
@@ -41,7 +44,8 @@
 
 			&:hover > a,
 			&.focus > a {
-				color: $color__link-hover;
+				//color: $color__link-hover;
+
 			}
 		}
 
@@ -57,17 +61,29 @@
 	li {
 		float: left;
 		position: relative;
+		height: 97px;
+		width: 85px;
+		line-height: 97px;
+		text-align: center;
 
 		&:hover > a,
 		&.focus > a {
 			color: $color__link-hover;
+		}
+		&.focus_underline {
+			border-bottom: 3px solid $color__link-hover;
 		}
 	}
 
 	a {
 		display: block;
 		text-decoration: none;
-		padding: rem-calc(10);
+	}
+
+	.primary-menu {
+		font-family: 'Open Sans', sans-serif;
+		font-size: 15px;
+		color: #49cbcd;
 	}
 
 	.primary-menu > ul > li {
@@ -87,7 +103,7 @@
 	.current_page_item > a,
 	.current-menu-item > a,
 	.current_page_ancestor > a {
-		color: $color__link-hover;
+
 	}
 }
 

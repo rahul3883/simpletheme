@@ -18,11 +18,12 @@
 		</aside>
 	<?php } ?>
 
+<!--
 	<div class="site-info row-container">
 		<span class="blank-theme-copyright-text"><?php echo blank_theme_copyright_text(); ?></span>
 		<span class="sep"> | </span>
 		<a class="blank-theme-author-footer" href="<?php echo esc_url( 'https://rtcamp.com/' ); ?>" target="_blank"><?php esc_html_e( 'Blank Theme', 'blank-theme' ); ?></a>
-	</div><!-- .site-info -->
+	</div>--><!-- .site-info -->
 </footer><!-- #colophon -->
 </div><!-- #page -->
 

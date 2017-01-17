@@ -5,7 +5,7 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-	var container, button, menu, links, subMenus, i, len;
+	var container, button, menu, links, subMenus, i, len, firstItem;
 
 	container = document.getElementById( 'site-navigation' );
 	if ( ! container ) {
@@ -69,13 +69,18 @@
 			// On li elements toggle the class .focus.
 			if ( 'li' === self.tagName.toLowerCase() ) {
 				if ( -1 !== self.className.indexOf( 'focus' ) ) {
-					self.className = self.className.replace( ' focus', '' );
+					self.className = self.className.replace( ' focus focus_underline', '' );
 				} else {
-					self.className += ' focus';
+					self.className += ' focus focus_underline';
 				}
 			}
 
 			self = self.parentElement;
 		}
 	}
+
+	//firstItem = menu.querySelector( 'li:first-child > a' );
+	//toggleFocus( firstItem );
+	//firstItem.className += ' focus focus_underline';
+
 } )();

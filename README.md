@@ -1,1 +1,2 @@
 #Simple WordPress Theme
+# simpletheme

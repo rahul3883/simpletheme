@@ -4,18 +4,23 @@ jQuery( function( $ ) {
 
 	window.BlankTheme = {
 		$backToTop: $( '#blank-theme-back-to-top' ),
+		prevArrow: $('#slider-arrow-left'),
+		nextArrow: $('#slider-arrow-right'),
 
 		init: function() {
+			//call to custom function
+
 			this.createMobileMenu();
 
 			// Enable to animate child menu
 			// this.animateMenu();
 
 			// Enable to trigger slider
-			// this.createSlider();
+			this.createSlider();
 
 			this.fixAdminBar();
 			this.events();
+
 		},
 
 		events: function() {
@@ -23,9 +28,16 @@ jQuery( function( $ ) {
 		},
 
 		createSlider: function() {
+			//console.log("jelll");
 			if ( $( '#blank-theme-slider' ).length ) {
 				$( '#blank-theme-slider' ).slick( {
-					// Custom Option
+					infinite: true,
+				  slidesToShow: 1,
+				  slidesToScroll: 1,
+					autoplay: false,
+ 					autoplaySpeed: 2000,
+					prevArrow: this.prevArrow,
+					nextArrow: this.nextArrow
 				} );
 			}
 		},

@@ -189,13 +189,16 @@ function blank_theme_scripts() {
 	          SCRIPTS
 	===============================*/
 
+	// Add simpletheme scripts
+
 	if ( BLANK_THEME_IS_DEV ) {
+		//echo "<br>dev<br>";
 		wp_register_script( 'blank-theme-nav', BLANK_THEME_JS_URI . '/vendor/navigation.js', array( 'jquery' ), BLANK_THEME_VERSION, true );
 		wp_register_script( 'blank-theme-mmenu', BLANK_THEME_JS_URI . '/vendor/jquery.mmenu.min.all.js', array( 'jquery' ), BLANK_THEME_VERSION, true );
 		wp_register_script( 'blank-theme-slick', BLANK_THEME_JS_URI . '/vendor/slick.js', array( 'jquery' ), BLANK_THEME_VERSION, true );
 		wp_register_script( 'blank-theme-main', BLANK_THEME_JS_URI . '/main.js', array( 'jquery', 'blank-theme-nav', 'blank-theme-mmenu', 'blank-theme-slick' ), BLANK_THEME_VERSION, true );
 	} else {
-
+		//echo "<br>nonD<br>";
 		wp_register_script( 'blank-theme-main', BLANK_THEME_JS_URI . '/main.min.js', array( 'jquery' ), BLANK_THEME_VERSION, true );
 	}
 
@@ -225,3 +228,9 @@ foreach ( $blank_theme_depedencies as $path ) {
 }
 
 do_action( 'blank_theme_after' );
+
+
+//SimpleTheme Modifications
+function simpletheme_scripts() {
+	wp_enqueue_style( 'open-sans-style', 'https://fonts.googleapis.com/css?family=Open+Sans' );
+}

@@ -79,7 +79,7 @@ $color__secondary: blue;
 
 /// Theme Color - Used for link hover color
 /// @type color
-$color__theme: red;
+$color__theme: #49CBCD;
 
 /// Body background color - Used for `<body>` tag
 /// @type color
@@ -191,3 +191,6 @@ $medium-end-point: 1024px;
 /// Responsive - Small End Point
 /// @type Number
 $small-end-point: 640px;
+
+//SimpleTheme Variables
+$font-family-simpletheme: 'Open Sans', sans-serif;
