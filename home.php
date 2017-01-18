@@ -26,7 +26,10 @@ get_header();
 
 		<div style="width:100%; height:100px; border: 1px solid black;"></div>
 
-		<?php get_sidebar('pages'); ?>
+		<?php get_sidebar( 'pages' ); ?>
+
+		<?php get_template_part( 'template-parts/content', 'portfolio' ); ?>
+		<?php get_template_part( 'template-parts/content', 'team' ); ?>
 
 	</main><!-- #main -->
 </div><!-- #primary -->
