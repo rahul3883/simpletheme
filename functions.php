@@ -247,63 +247,63 @@ function simpletheme_scripts() {
 
 
 
-class My_Widget extends WP_Widget {
+class St_Pages_Widget extends WP_Widget {
 
-    function __construct() {
+	function __construct() {
 
-        parent::__construct(
-            'my-text',  // Base ID
-            'Page Select'   // Name
-        );
+		parent::__construct(
+			'my-text',
+			'Page Select'
+		);
 
-        add_action( 'widgets_init', function() {
-            register_widget( 'My_Widget' );
-        });
+		add_action( 'widgets_init', function() {
+			register_widget( 'My_Widget' );
+		});
 
-    }
+	}
 
-    public function widget( $args, $instance ) {
+	public function widget( $args, $instance ) {
 
-				echo $args['before_widget'];
+		echo $args['before_widget'];
 
-				$page_args = array(
-					'p'	=> $instance['page_id'],
-					'post_type'	=> 'page'
-				);
+		$page_args = array(
+			'p'	=> $instance['page_id'],
+			'post_type'	=> 'page',
+		);
 
-				global $post;
+		global $post;
 
-				$page = new WP_Query( $page_args );
-				$page->the_post();
+		$page = new WP_Query( $page_args );
+		$page->the_post();
 
+		?>
+
+		<?php echo get_the_post_thumbnail( $instance['page_id'], array( 99, 99 ), array( 'class' => 'st-widget-post-image' ) ); ?>
+		<h2 class="st-widget-post-title">
+			<?php the_title(); ?>
+		</h2>
+		<p class="st-widget-post-content">
+			<?php echo wp_kses_post( wp_trim_words( get_the_content(), 15 ) ); ?>
+		</p>
+		<a class="st-widget-post-readmore" href="<?php the_permalink(); ?>"><?php _e( 'Read More', 'blank-theme' ) ?></a>
+
+		<?php
+
+		echo $args['after_widget'];
+
+	}
+
+	public function form( $instance ) {
+
+			$page_id = ! empty( $instance['page_id'] ) ? $instance['page_id'] : esc_html( '' );
 			?>
-
-				<?php echo get_the_post_thumbnail( $instance['page_id'], array( 99, 99 ), array( 'class' => 'st-widget-post-image')); ?>
-				<h2 class="st-widget-post-title">
-					<?php the_title(); ?>
-				</h2>
-				<p class="st-widget-post-content">
-					<?php echo wp_kses_post( wp_trim_words( get_the_content(), 15 ) ); ?>
-				</p>
-				<a class="st-widget-post-readmore" href="<?php echo the_guid(); ?>"><?php _e( 'Read More', 'blank-theme' ) ?></a>
-
-			<?php
-
-				echo $args['after_widget'];
-
-    }
-
-    public function form( $instance ) {
-
-        $page_id = ! empty( $instance['page_id'] ) ? $instance['page_id'] : esc_html__( '', 'blank-theme' );
-        ?>
 
 				<?php
 
 					$args = array(
 						'include' => array( 40, 42, 44, 47 ),
 						'post_type' => 'page',
-						'post_status' => 'publish'
+						'post_status' => 'publish',
 					);
 
 					$pages = get_pages( $args );
@@ -318,19 +318,91 @@ class My_Widget extends WP_Widget {
 
 				</select>
 
-        <?php
+				<?php
 
-    }
+	}
 
-    public function update( $new_instance, $old_instance ) {
-
-        $instance = array();
-
-        $instance['page_id'] = ( !empty( $new_instance['page_id'] ) ) ? strip_tags( $new_instance['page_id'] ) : '';
-
-        return $instance;
-    }
+	public function update( $new_instance, $old_instance ) {
+		$instance = array();
+		$instance['page_id'] = ( ! empty( $new_instance['page_id'] ) ) ? strip_tags( $new_instance['page_id'] ) : '';
+		return $instance;
+	}
 
 }
 
-add_action( 'widgets_init', function() { register_widget( 'My_Widget' ); } );
+add_action( 'widgets_init', function() {
+		register_widget( 'St_Pages_Widget' );
+} );
+
+if ( function_exists( 'add_image_size' ) ) {
+	add_image_size( 'st-pages', 99, 99, false );
+	add_image_size( 'st-portfolio', 370, 314, true );
+	add_image_size( 'st-team', 201, 201, true );
+}
+
+function st_custom_post_type() {
+	register_post_type( 'st_portfolio', [
+			'labels'			=> [
+				'name'					=> __( 'Portfolio', 'simple-theme' ),
+				'singular_name'	=> __( 'Poerfolio', 'simple-theme' ),
+				'add_new'				=> __( 'Add New Portfolio', 'simple-theme' ),
+			],
+			'supports'		=> [ 'title', 'editor', 'thumbnail' ],
+			'public'			=> true,
+			'has_archive'	=> true,
+	] );
+
+	register_post_type( 'st_team', [
+			'labels'			=> [
+				'name'					=> __( 'Team', 'simple-theme' ),
+				'singular_name'	=> __( 'Member', 'simple-theme' ),
+				'add_new'				=> __( 'Add New Member', 'simple-theme' ),
+			],
+			'supports'		=> [ 'title', 'excerpt', 'thumbnail' ],
+			'public'			=> true,
+			'has_archive'	=> true,
+	] );
+}
+
+add_action( 'init', 'st_custom_post_type' );
+
+function register_custom_meta_boxes( $post ) {
+	add_meta_box(
+		'designation-meta-box',
+		__( 'Designation', 'simple-theme' ),
+		'render_designation_meta_box',
+		'st_team',
+		'normal',
+		'default'
+	);
+}
+add_action( 'add_meta_boxes', 'register_custom_meta_boxes' );
+
+function render_designation_meta_box( $post ) {
+
+	$designation = get_post_meta( $post->ID, '_team_member_designation', true );
+
+	?>
+
+	<input type="text" name="member-designation" value="<?php echo $designation; ?>">
+
+	<?php
+}
+
+function save_designation_meta_box( $post_id ) {
+	if ( defined( 'DOING_AUTO_SAVE' ) && DOING_AUTO_SAVE ) {
+		return $post_id;
+	}
+
+	if ( 'st_team' === $_POST['post_type'] ) {
+		if ( ! current_user_can( 'edit_page', $page_id ) ) {
+			return $page_id;
+		}
+	}
+
+	$designation = $_POST['member-designation'];
+
+	update_post_meta( $post_id, '_team_member_designation', $designation );
+}
+
+add_action( 'save_post', 'save_designation_meta_box' );
