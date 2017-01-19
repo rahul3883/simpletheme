@@ -170,10 +170,20 @@ function blank_theme_widgets_init() {
 	register_sidebar( array(
 		'name'					=> esc_html__( 'Pages', 'blank-theme' ),
 		'id'						=> 'sidebar-widget-pages',
-		'description'		=> 'sidebar containing widget area for widgets that display pages',
+		'description'		=> 'sidebar containing widget area to display Pages',
 		'before_widget'	=> '<div id="%1$s" class="st-widget-pages large-3 column %2$s">',
 		'after_widget'	=> '</div>',
 		'before_title'	=> '<h4 class="widget-pages-title">',
+		'after_title'		=> '</h4>',
+	) );
+
+	register_sidebar( array(
+		'name'					=> esc_html__( 'Pricing', 'blank-theme' ),
+		'id'						=> 'sidebar-widget-pricing',
+		'description'		=> 'sidebar containing widget area to display Pricing',
+		'before_widget'	=> '<div id="%1$s" class="st-widget-pricing large-4 column %2$s">',
+		'after_widget'	=> '</div>',
+		'before_title'	=> '<h4 class="widget-pricing-title">',
 		'after_title'		=> '</h4>',
 	) );
 }
@@ -245,94 +255,8 @@ function simpletheme_scripts() {
 	wp_enqueue_style( 'open-sans-style', 'https://fonts.googleapis.com/css?family=Open+Sans' );
 }
 
-
-
-class St_Pages_Widget extends WP_Widget {
-
-	function __construct() {
-
-		parent::__construct(
-			'my-text',
-			'Page Select'
-		);
-
-		add_action( 'widgets_init', function() {
-			register_widget( 'My_Widget' );
-		});
-
-	}
-
-	public function widget( $args, $instance ) {
-
-		echo $args['before_widget'];
-
-		$page_args = array(
-			'p'	=> $instance['page_id'],
-			'post_type'	=> 'page',
-		);
-
-		global $post;
-
-		$page = new WP_Query( $page_args );
-		$page->the_post();
-
-		?>
-
-		<?php echo get_the_post_thumbnail( $instance['page_id'], array( 99, 99 ), array( 'class' => 'st-widget-post-image' ) ); ?>
-		<h2 class="st-widget-post-title">
-			<?php the_title(); ?>
-		</h2>
-		<p class="st-widget-post-content">
-			<?php echo wp_kses_post( wp_trim_words( get_the_content(), 15 ) ); ?>
-		</p>
-		<a class="st-widget-post-readmore" href="<?php the_permalink(); ?>"><?php _e( 'Read More', 'blank-theme' ) ?></a>
-
-		<?php
-
-		echo $args['after_widget'];
-
-	}
-
-	public function form( $instance ) {
-
-			$page_id = ! empty( $instance['page_id'] ) ? $instance['page_id'] : esc_html( '' );
-			?>
-
-				<?php
-
-					$args = array(
-						'include' => array( 40, 42, 44, 47 ),
-						'post_type' => 'page',
-						'post_status' => 'publish',
-					);
-
-					$pages = get_pages( $args );
-
-				?>
-
-				<select id="<?php echo esc_attr( $this->get_field_id( 'page_id' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'page_id' ) ); ?>">
-
-					<?php	foreach ( $pages as $page ) { ?>
-			 				<option <?php selected( $page_id, $page->ID ); ?> value="<?php echo $page->ID; ?>"><?php echo $page->post_title; ?></option>
-					<?php	} ?>
-
-				</select>
-
-				<?php
-
-	}
-
-	public function update( $new_instance, $old_instance ) {
-		$instance = array();
-		$instance['page_id'] = ( ! empty( $new_instance['page_id'] ) ) ? strip_tags( $new_instance['page_id'] ) : '';
-		return $instance;
-	}
-
-}
-
-add_action( 'widgets_init', function() {
-		register_widget( 'St_Pages_Widget' );
-} );
+//add custom Widgets
+include( get_template_directory() . '/widgets/widgets.php' );
 
 if ( function_exists( 'add_image_size' ) ) {
 	add_image_size( 'st-pages', 99, 99, false );
@@ -342,67 +266,39 @@ if ( function_exists( 'add_image_size' ) ) {
 
 function st_custom_post_type() {
 	register_post_type( 'st_portfolio', [
-			'labels'			=> [
-				'name'					=> __( 'Portfolio', 'simple-theme' ),
-				'singular_name'	=> __( 'Poerfolio', 'simple-theme' ),
-				'add_new'				=> __( 'Add New Portfolio', 'simple-theme' ),
-			],
-			'supports'		=> [ 'title', 'editor', 'thumbnail' ],
-			'public'			=> true,
-			'has_archive'	=> true,
+		'labels'			=> [
+			'name'					=> __( 'Portfolio', 'simple-theme' ),
+			'singular_name'	=> __( 'Portfolio', 'simple-theme' ),
+			'add_new'				=> __( 'Add New Portfolio', 'simple-theme' ),
+		],
+		'supports'		=> [ 'title', 'editor', 'thumbnail' ],
+		'public'			=> true,
+		'has_archive'	=> true,
 	] );
 
 	register_post_type( 'st_team', [
-			'labels'			=> [
-				'name'					=> __( 'Team', 'simple-theme' ),
-				'singular_name'	=> __( 'Member', 'simple-theme' ),
-				'add_new'				=> __( 'Add New Member', 'simple-theme' ),
-			],
-			'supports'		=> [ 'title', 'excerpt', 'thumbnail' ],
-			'public'			=> true,
-			'has_archive'	=> true,
+		'labels'			=> [
+			'name'					=> __( 'Team', 'simple-theme' ),
+			'singular_name'	=> __( 'Member', 'simple-theme' ),
+			'add_new'				=> __( 'Add New Member', 'simple-theme' ),
+		],
+		'supports'		=> [ 'title', 'excerpt', 'thumbnail' ],
+		'public'			=> true,
+		'has_archive'	=> true,
+	] );
+
+	register_post_type( 'st_testimonials', [
+		'labels'		  => [
+			'name'					=> __( 'Testimonials', 'simple-theme' ),
+			'singular_name'	=> __( 'Testimonial', 'simple-theme' ),
+		],
+		'supports'	  => [ 'excerpt' ],
+		'public'		  => true,
+		'has_archive'	=> true,
 	] );
 }
 
 add_action( 'init', 'st_custom_post_type' );
 
-function register_custom_meta_boxes( $post ) {
-	add_meta_box(
-		'designation-meta-box',
-		__( 'Designation', 'simple-theme' ),
-		'render_designation_meta_box',
-		'st_team',
-		'normal',
-		'default'
-	);
-}
-add_action( 'add_meta_boxes', 'register_custom_meta_boxes' );
-
-function render_designation_meta_box( $post ) {
-
-	$designation = get_post_meta( $post->ID, '_team_member_designation', true );
-
-	?>
-
-	<input type="text" name="member-designation" value="<?php echo $designation; ?>">
-
-	<?php
-}
-
-function save_designation_meta_box( $post_id ) {
-	if ( defined( 'DOING_AUTO_SAVE' ) && DOING_AUTO_SAVE ) {
-		return $post_id;
-	}
-
-	if ( 'st_team' === $_POST['post_type'] ) {
-		if ( ! current_user_can( 'edit_page', $page_id ) ) {
-			return $page_id;
-		}
-	}
-
-	$designation = $_POST['member-designation'];
-
-	update_post_meta( $post_id, '_team_member_designation', $designation );
-}
-
-add_action( 'save_post', 'save_designation_meta_box' );
+//add meta boxes
+include( get_template_directory() . '/meta-boxes/meta-boxes.php' );
