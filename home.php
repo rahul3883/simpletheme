@@ -28,8 +28,23 @@ get_header();
 
 		<?php get_sidebar( 'pages' ); ?>
 
+		<hr>
+
 		<?php get_template_part( 'template-parts/content', 'portfolio' ); ?>
+
+		<hr>
+
 		<?php get_template_part( 'template-parts/content', 'team' ); ?>
+
+		<hr>
+
+		<?php get_sidebar( 'pricing' ); ?>
+
+		<hr>
+
+		<?php get_template_part( 'template-parts/content', 'testimonials' ); ?>
+
+		<hr>
 
 	</main><!-- #main -->
 </div><!-- #primary -->
