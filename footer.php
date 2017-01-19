@@ -10,20 +10,9 @@
 
 </div><!-- #content -->
 
-<footer id="colophon" class="site-footer" role="contentinfo">
+<footer style="border:1px solid black;" id="colophon" class="site-footer" role="contentinfo">
+<h2>Contact Us</h2>
 
-	<?php if ( is_active_sidebar( 'sidebar-2' ) ) { ?>
-		<aside class="rtp-footer-widgets row">
-			<?php dynamic_sidebar( 'sidebar-2' ); ?>
-		</aside>
-	<?php } ?>
-
-<!--
-	<div class="site-info row-container">
-		<span class="blank-theme-copyright-text"><?php echo blank_theme_copyright_text(); ?></span>
-		<span class="sep"> | </span>
-		<a class="blank-theme-author-footer" href="<?php echo esc_url( 'https://rtcamp.com/' ); ?>" target="_blank"><?php esc_html_e( 'Blank Theme', 'blank-theme' ); ?></a>
-	</div>--><!-- .site-info -->
 </footer><!-- #colophon -->
 </div><!-- #page -->
 
