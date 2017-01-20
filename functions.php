@@ -26,6 +26,9 @@ if ( ! defined( 'BLANK_THEME_IMG_URI' ) ) {
 if ( ! defined( 'BLANK_THEME_IS_DEV' ) ) {
 	define( 'BLANK_THEME_IS_DEV', true );
 }
+if ( ! defined( 'BLANK_THEME_IMAGE_DIRECTORY' ) ) {
+	define( 'BLANK_THEME_IMAGE_DIRECTORY', BLANK_THEME_TEMP_URI . '/images/slicing/SlicingHomepage' );
+}
 
 do_action( 'blank_theme_before' );
 
@@ -210,6 +213,7 @@ function blank_theme_scripts() {
 	===============================*/
 
 	// Add simpletheme scripts
+	simpletheme_scripts();
 
 	if ( BLANK_THEME_IS_DEV ) {
 		//echo "<br>dev<br>";
@@ -253,6 +257,7 @@ do_action( 'blank_theme_after' );
 //SimpleTheme Modifications
 function simpletheme_scripts() {
 	wp_enqueue_style( 'open-sans-style', 'https://fonts.googleapis.com/css?family=Open+Sans' );
+	//wp_enqueue_style( 'open-sans-style', get_template_directory_uri() . '/sass/css/open-sans.css' );
 }
 
 //add custom Widgets
@@ -267,9 +272,9 @@ if ( function_exists( 'add_image_size' ) ) {
 function st_custom_post_type() {
 	register_post_type( 'st_portfolio', [
 		'labels'			=> [
-			'name'					=> __( 'Portfolio', 'simple-theme' ),
-			'singular_name'	=> __( 'Portfolio', 'simple-theme' ),
-			'add_new'				=> __( 'Add New Portfolio', 'simple-theme' ),
+			'name'					=> __( 'Portfolio', 'blank-theme' ),
+			'singular_name'	=> __( 'Portfolio', 'blank-theme' ),
+			'add_new'				=> __( 'Add New Portfolio', 'blank-theme' ),
 		],
 		'supports'		=> [ 'title', 'editor', 'thumbnail' ],
 		'public'			=> true,
@@ -278,9 +283,9 @@ function st_custom_post_type() {
 
 	register_post_type( 'st_team', [
 		'labels'			=> [
-			'name'					=> __( 'Team', 'simple-theme' ),
-			'singular_name'	=> __( 'Member', 'simple-theme' ),
-			'add_new'				=> __( 'Add New Member', 'simple-theme' ),
+			'name'					=> __( 'Team', 'blank-theme' ),
+			'singular_name'	=> __( 'Member', 'blank-theme' ),
+			'add_new'				=> __( 'Add New Member', 'blank-theme' ),
 		],
 		'supports'		=> [ 'title', 'excerpt', 'thumbnail' ],
 		'public'			=> true,
@@ -289,8 +294,8 @@ function st_custom_post_type() {
 
 	register_post_type( 'st_testimonials', [
 		'labels'		  => [
-			'name'					=> __( 'Testimonials', 'simple-theme' ),
-			'singular_name'	=> __( 'Testimonial', 'simple-theme' ),
+			'name'					=> __( 'Testimonials', 'blank-theme' ),
+			'singular_name'	=> __( 'Testimonial', 'blank-theme' ),
 		],
 		'supports'	  => [ 'excerpt' ],
 		'public'		  => true,
@@ -302,3 +307,6 @@ add_action( 'init', 'st_custom_post_type' );
 
 //add meta boxes
 include( get_template_directory() . '/meta-boxes/meta-boxes.php' );
+
+//add customizer filed
+include( get_template_directory() . '/st-customizer.php' );
