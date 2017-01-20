@@ -3650,11 +3650,6 @@ textarea {
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
-.site-header {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-}
-
 .site-title {
   margin-bottom: 0.3125rem;
 }
@@ -3741,7 +3736,7 @@ textarea {
 }
 
 .st-widget-pages-container {
-  margin: 6.25rem;
+  margin: 6.25rem 0;
 }
 
 /*--------------------------------------------------------------

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Blank Theme 1.0.0\n"
 "Report-Msgid-Bugs-To: http://community.rtcamp.com/c/premium-themes\n"
-"POT-Creation-Date: 2017-01-17 12:50:43+00:00\n"
+"POT-Creation-Date: 2017-01-20 13:21:48+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -651,24 +651,52 @@ msgstr ""
 msgid "Comments are closed."
 msgstr ""
 
-#. Theme Name of the plugin/theme
-msgid "Blank Theme"
-msgstr ""
-
-#: functions.php:75 header.php:32
+#: functions.php:78 header.php:32
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:151
+#: functions.php:154
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:161
+#: functions.php:164
 msgid "Footer"
 msgstr ""
 
-#: functions.php:171
+#: functions.php:174
 msgid "Pages"
+msgstr ""
+
+#: functions.php:184
+msgid "Pricing"
+msgstr ""
+
+#: functions.php:273 functions.php:274
+msgid "Portfolio"
+msgstr ""
+
+#: functions.php:275
+msgid "Add New Portfolio"
+msgstr ""
+
+#: functions.php:284
+msgid "Team"
+msgstr ""
+
+#: functions.php:285
+msgid "Member"
+msgstr ""
+
+#: functions.php:286
+msgid "Add New Member"
+msgstr ""
+
+#: functions.php:295
+msgid "Testimonials"
+msgstr ""
+
+#: functions.php:296
+msgid "Testimonial"
 msgstr ""
 
 #: header.php:23
@@ -723,7 +751,7 @@ msgstr ""
 msgid " Next"
 msgstr ""
 
-#: inc/extras.php:240
+#: inc/extras.php:240 widgets/class-st-pages-widget.php:37
 msgid "Read More"
 msgstr ""
 
@@ -749,6 +777,14 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
+#: meta-boxes/class-team-meta-box.php:15
+msgid "Designation"
+msgstr ""
+
+#: meta-boxes/class-testimonials-meta-box.php:13
+msgid "Person Information"
+msgstr ""
+
 #: search.php:16
 msgid "Search Results for: %s"
 msgstr ""
@@ -767,6 +803,82 @@ msgstr ""
 
 #: searchform.php:6
 msgid "Search"
+msgstr ""
+
+#: st-customizer.php:13
+msgid "Get in touch with us"
+msgstr ""
+
+#: st-customizer.php:14
+msgid "dictumst nunc facilisis magnis! Magna"
+msgstr ""
+
+#: st-customizer.php:15 st-customizer.php:16 st-customizer.php:17
+msgid "#"
+msgstr ""
+
+#: st-customizer.php:18
+msgid "Simple Theme"
+msgstr ""
+
+#: st-customizer.php:19
+msgid "http://www.google.com"
+msgstr ""
+
+#: st-customizer.php:41
+msgid "Contact Us"
+msgstr ""
+
+#: st-customizer.php:42
+msgid "Contact Page"
+msgstr ""
+
+#: st-customizer.php:47
+msgid "Contact Headers"
+msgstr ""
+
+#: st-customizer.php:58
+msgid "Contact Head"
+msgstr ""
+
+#: st-customizer.php:70
+msgid "Contact Text"
+msgstr ""
+
+#: st-customizer.php:77
+msgid "Social Links"
+msgstr ""
+
+#: st-customizer.php:88
+msgid "Facebook"
+msgstr ""
+
+#: st-customizer.php:100
+msgid "Twitter"
+msgstr ""
+
+#: st-customizer.php:112
+msgid "Google Plus"
+msgstr ""
+
+#: st-customizer.php:119
+msgid "Contact Information"
+msgstr ""
+
+#: st-customizer.php:130
+msgid "Website Name"
+msgstr ""
+
+#: st-customizer.php:142
+msgid "Website Link"
+msgstr ""
+
+#: st-customizer.php:154
+msgid "Contact Number"
+msgstr ""
+
+#: st-customizer.php:166
+msgid "Email"
 msgstr ""
 
 #: temp/customizer-slider.php:15
@@ -861,9 +973,17 @@ msgstr ""
 msgid "Pages:"
 msgstr ""
 
+#: template-parts/content-testimonials.php:13
+msgid "What Clients Say"
+msgstr ""
+
 #: template-parts/content.php:23
 #. translators: %s: Name of current post.
 msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "Blank Theme"
 msgstr ""
 
 #. Author URI of the plugin/theme
