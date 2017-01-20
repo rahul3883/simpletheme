@@ -10,7 +10,7 @@
 
 <section class="st-testimonials">
 	<header	class="st-page-header">
-		<h2 class="st-page-title"><?php _e( 'What Clients Say', 'sample-theme' ); ?></h2>
+		<h2 class="st-page-title"><?php _e( 'What Clients Say', 'blank-theme' ); ?></h2>
 	</header>
 
 	<div class="st-page-content row">
