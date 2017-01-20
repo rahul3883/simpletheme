@@ -5,13 +5,12 @@ class Testimonials_Meta_Box {
 	function __construct() {
 		add_action( 'add_meta_boxes', array( $this, 'register_meta_boxes' ) );
 		add_action( 'save_post', array( $this, 'save_meta_box' ) );
-
 	}
 
 	function register_meta_boxes( $post ) {
 		add_meta_box(
 			'testimonials-meta-box',
-			__( 'Person Information', 'simple-theme' ),
+			__( 'Person Information', 'blank-theme' ),
 			array( $this, 'render_meta_box' ),
 			'st_testimonials',
 			'normal',
@@ -24,15 +23,15 @@ class Testimonials_Meta_Box {
 		wp_nonce_field( 'testimonial_meta_box', 'testimonial_meta_box_nonce' );
 
 		$name = get_post_meta( $post->ID, '_testimonial_name_key', true );
-    $designation = get_post_meta( $post->ID, '_testimonial_designation_key', true );
+		$designation = get_post_meta( $post->ID, '_testimonial_designation_key', true );
 
 		?>
 
-    <b>Name</b><br>
+		<b>Name</b><br>
 		<input type="text" name="testimonial-name" value="<?php echo $name; ?>"><br>
-    <br>
-    <b>Designation</b><br>
-    <input type="text" name="testimonial-designation" value="<?php echo $designation; ?>">
+		<br>
+		<b>Designation</b><br>
+		<input type="text" name="testimonial-designation" value="<?php echo $designation; ?>">
 
 		<?php
 	}
@@ -63,7 +62,7 @@ class Testimonials_Meta_Box {
 			}
 		}
 
-    $name = sanitize_text_field( $_POST['testimonial-name'] );
+		$name = sanitize_text_field( $_POST['testimonial-name'] );
 		$designation = sanitize_text_field( $_POST['testimonial-designation'] );
 
 		update_post_meta( $post_id, '_testimonial_name_key', $name );

@@ -12,7 +12,7 @@ class Team_Meta_Box {
 	function register_meta_boxes( $post ) {
 		add_meta_box(
 			'team-meta-box',
-			__( 'Designation', 'simple-theme' ),
+			__( 'Designation', 'blank-theme' ),
 			array( $this, 'render_meta_box' ),
 			'st_team',
 			'normal',
