@@ -14,7 +14,7 @@
 		$st_portfolio_obj = get_post_type_object( 'st_portfolio' );
 		?>
 
-		<h2 class="st-page-title"><?php echo $st_portfolio_obj->labels->name; ?></h2>
+		<p class="st-page-title"><?php echo $st_portfolio_obj->labels->name; ?></p>
 	</header>
 
 	<div class="st-page-content row">
@@ -32,15 +32,21 @@
 				$portfolio_posts->the_post();
 				?>
 
-				<div style="text-align:center;" class="large-4 column">
-					<?php the_post_thumbnail( 'st-portfolio' ); ?>
-
-					<h3 class="st-portfolio-post-title"><?php the_title(); ?></h3>
+				<div class="large-4 column st-portfolio-outer">
+					<div class="st-portfolio-content-wrapper">
+						<?php the_post_thumbnail( 'st-portfolio', array( 'class' => 'st-portfolio-thumbnail' ) ); ?>
+						<div class="st-portfolio-post-title-wrapper">
+							<?php helper_span(); ?>
+							<p class="st-portfolio-post-title v-align-middle"><?php the_title(); ?></p>
+					</div>
+				</div>
 				</div>
 
 			<?php } ?>
 
-			<a href="#">See all works</a>
+			<div class="large-12 medium-12 small-12 column">
+				<a href="#" class="st-portfolio-button">See all works</a>
+			</div>
 			<?php
 		} else {
 
