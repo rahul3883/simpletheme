@@ -27,23 +27,22 @@
 	text-align: center;
 }
 
-.st-widget-pages * {
-	font-family: $font-family-simpletheme;
-}
-
 .st-widget-post-image {
 	border-radius: 100%;
+	margin: rem-calc(40) 0;
 }
 
 .st-widget-post-title {
-	font-size: 22px;
-	color: $color-content;
-	margin-top: 20px;
+	font-size: rem-calc(22);
+	color: $color_content;
+	margin-bottom: rem-calc(20);
 }
 
 .st-widget-post-content {
 	font-size: 14px;
-	color: $color-content;
+	color: $color_content;
+	padding-left: 5%;
+	padding-right: 5%;
 }
 
 .st-widget-post-readmore {
@@ -55,4 +54,43 @@
 	font-size: 14px;
 	color: $white;
 	background-color: $color__theme;
+}
+
+//Pricing Widget
+.st-widget-pricing {
+
+}
+
+.plan-name-wrapper {
+
+}
+
+.plan-name {
+	font-size: rem-calc(26);
+	font-weight: $font_regular;
+	color: $white;
+}
+
+.plan-price-wrapper {
+	background: $plan_background;
+}
+
+.plan-price {
+	font-size: rem-calc(20);
+	font-weight: $font_regular;
+	color: #485460;
+}
+
+.plan-features {
+
+}
+
+.plan-button-wrapper {
+	background: $plan_background;
+}
+
+.plan-button {
+	font-size: rem-calc(17);
+	font-weight: $font_semi_bold;
+	color: $white;
 }

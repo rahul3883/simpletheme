@@ -118,3 +118,22 @@
 	padding-left: $gutter / 2;
 	padding-right: $gutter / 2;
 }
+
+.helper-span {
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+
+.v-align-middle {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.light_black_color {
+	background: #485460;
+}
+
+.light_blue_color {
+	background: $color__theme;
+}

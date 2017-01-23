@@ -1,0 +1,124 @@
+#primary {
+	//padding-left: 0;
+	//padding-right: 0;
+}
+
+.st-section-container {
+	width: 100%;
+	text-align: center;
+}
+
+.st-content-wrapper {
+	max-width: rem-calc( $content_wrapper_width );
+	margin: 0 auto;
+}
+
+
+.st-widget-pages-container {
+	padding: rem-calc(105) 0;
+}
+
+//Portfolio
+#st-portfolio-container {
+	background: #F1F1F1;
+	padding-top: rem-calc(35);
+	padding-bottom: rem-calc(60);
+}
+
+.st-page-content {
+	text-align: center;
+}
+
+.st-page-header {
+	text-align: center;
+}
+
+.st-page-title {
+	font-size: rem-calc(42);
+	color: $color_content;
+	//padding-top: rem-calc(30);
+}
+
+.st-portfolio-outer {
+	text-align: center;
+	padding-top: rem-calc(15);
+	padding-bottom: rem-calc(15);
+}
+
+.st-portfolio-content-wrapper {
+	position: relative;
+	display: inline-block;
+}
+
+.st-portfolio-post-title-wrapper {
+	position: absolute;
+	top:0;
+	width: 100%;
+	height: 100%;
+	border-radius: 4px;
+	background: rgba(255, 204, 0, 0.7);
+	opacity: 0;
+	-webkit-transition: opacity 0.5s;
+	transition: opacity 0.5s;
+}
+
+.st-portfolio-post-title {
+	margin: 0;
+	font-size: rem-calc(50);
+	text-shadow: rgba(110, 110, 110, 0.5) 0 0 20px;
+}
+
+.st-portfolio-content-wrapper:hover > .st-portfolio-post-title-wrapper {
+	opacity: 1;
+}
+
+.st-portfolio-button {
+	width: 230px;
+	height: 62px;
+	margin: rem-calc(40) 0;
+	border-radius: 4px;
+	line-height: 62px;
+	font-size: 26px;
+	font-weight: $font_semi_bold;
+	color: $white;
+	background: $color__theme;
+	display: inline-block;
+}
+
+
+//Team
+#st-team-container {
+	padding-top: rem-calc(60);
+	padding-bottom: rem-calc(70);
+}
+
+.st-team-member-thumbnail {
+	width: rem-calc(201);
+	height: rem-calc(201);
+	border-radius: 100%;
+	overflow: hidden;
+	background: #EEEEF0;
+	display: inline-block;
+	margin-top: rem-calc(85);
+	margin-bottom: rem-calc(70);
+}
+
+.st-team-text {
+	color: $color_content;
+	margin: 0;
+}
+
+.st-team-member-title {
+	font-size: rem-calc(22);
+	line-height: rem-calc(27);
+}
+
+.st-team-member-designation {
+	font-size: rem-calc(14);
+	line-height: rem-calc(27);
+}
+
+.st-team-member-excerpt {
+	font-size: rem-calc(14);
+	padding: rem-calc(25) rem-calc(15) 0 rem-calc(15);
+}

@@ -8,7 +8,7 @@
 
 /// Global theme font
 /// @type String
-$font__main: sans-serif;
+$font__main: 'Open Sans', sans-serif;
 
 /// Global code font
 /// @type String
@@ -83,7 +83,7 @@ $color__theme: #49CBCD;
 
 /// Body background color - Used for `<body>` tag
 /// @type color
-$color__background-body: #fafaf4;
+$color__background-body: $white;
 $color__background-screen: #f1f1f1;
 
 /// Horizontal line color - Used for `<hr />` tag.
@@ -193,7 +193,19 @@ $medium-end-point: 1024px;
 $small-end-point: 640px;
 
 //SimpleTheme Variables
-$font-family-simpletheme: 'Open Sans', sans-serif;
+$font_family_simpletheme: 'Open Sans', sans-serif;
 
 //content color
-$color-content: #4E525D;
+$color_content: #4E525D;
+
+//content wrapper
+$content_wrapper_width: 1200px;
+
+//Font Weight
+$font_regular: 500;
+$font_semi_bold: 600;
+$font_bold: 700;
+$font_extra_bold: 800;
+
+//Plan Background
+$plan_background: #F8F9FB;
