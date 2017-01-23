@@ -221,3 +221,30 @@ function blank_theme_get_server_var( $server_key, $filter_type = 'FILTER_SANITIZ
 
 	return $server_val;
 }
+
+if ( ! function_exists( 'helper_span' ) ) {
+
+	function helper_span() {
+		?>
+
+		<span class="helper-span"></span>
+
+		<?php
+	}
+}
+
+if ( ! function_exists( 'simple_theme_site_branding' ) ) {
+
+	function simple_theme_site_branding() {
+
+		$path = BLANK_THEME_IMAGE_DIRECTORY . '/logo.png';
+		?>
+
+		<?php helper_span(); ?>
+		<a href="<?php site_url(); ?>">
+			<img class="site-branding-image v-align-middle" src="<?php echo $path; ?>">
+		</a>
+
+		<?php
+	}
+}

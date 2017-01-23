@@ -283,7 +283,7 @@ function st_custom_post_type() {
 
 	register_post_type( 'st_team', [
 		'labels'			=> [
-			'name'					=> __( 'Team', 'blank-theme' ),
+			'name'					=> __( 'The Team', 'blank-theme' ),
 			'singular_name'	=> __( 'Member', 'blank-theme' ),
 			'add_new'				=> __( 'Add New Member', 'blank-theme' ),
 		],

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Blank Theme 1.0.0\n"
 "Report-Msgid-Bugs-To: http://community.rtcamp.com/c/premium-themes\n"
-"POT-Creation-Date: 2017-01-20 13:21:48+00:00\n"
+"POT-Creation-Date: 2017-01-23 06:02:25+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -671,31 +671,31 @@ msgstr ""
 msgid "Pricing"
 msgstr ""
 
-#: functions.php:273 functions.php:274
+#: functions.php:275 functions.php:276
 msgid "Portfolio"
 msgstr ""
 
-#: functions.php:275
+#: functions.php:277
 msgid "Add New Portfolio"
 msgstr ""
 
-#: functions.php:284
+#: functions.php:286
 msgid "Team"
 msgstr ""
 
-#: functions.php:285
+#: functions.php:287
 msgid "Member"
 msgstr ""
 
-#: functions.php:286
+#: functions.php:288
 msgid "Add New Member"
 msgstr ""
 
-#: functions.php:295
+#: functions.php:297
 msgid "Testimonials"
 msgstr ""
 
-#: functions.php:296
+#: functions.php:298
 msgid "Testimonial"
 msgstr ""
 

@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-<div id="primary" class="<?php blank_theme_primary_classes( 'blank-theme-full-page', 'large-12 medium-12 small-12 column' ); ?>">
+<div id="primary" class="<?php blank_theme_primary_classes( 'blank-theme-full-page', 'large-12 medium-12 small-12' ); ?>">
 	<main id="main" class="" role="main">
 
 		<div id="slider-main-div">
@@ -26,19 +26,41 @@ get_header();
 
 		<div style="width:100%; height:100px; border: 1px solid black;"></div>
 
-		<?php get_sidebar( 'pages' ); ?>
+		<div id="st-pages-container" class="st-section-container">
+			<div class="st-content-wrapper">
+
+				<?php get_sidebar( 'pages' ); ?>
+
+			</div>
+		</div>
+
+		<div id="st-portfolio-container" class="st-section-container">
+			<div class="st-content-wrapper">
+
+				<?php get_template_part( 'template-parts/content', 'portfolio' ); ?>
+
+			</div>
+		</div>
+
+		<div id="st-team-container" class="st-section-container">
+			<div class="st-content-wrapper">
+
+				<?php get_template_part( 'template-parts/content', 'team' ); ?>
+
+			</div>
+		</div>
 
 		<hr>
 
-		<?php get_template_part( 'template-parts/content', 'portfolio' ); ?>
+		<div id="st-pricing-container" class="st-section-container">
+			<div class="st-content-wrapper">
 
-		<hr>
+				<?php get_sidebar( 'pricing' ); ?>
 
-		<?php get_template_part( 'template-parts/content', 'team' ); ?>
+			</div>
+		</div>
 
-		<hr>
 
-		<?php get_sidebar( 'pricing' ); ?>
 
 		<hr>
 

@@ -24,7 +24,7 @@
 
 	<header id="masthead" class="site-header row-container" role="banner">
 		<div class="site-branding column shrink">
-			<?php //echo blank_theme_site_branding(); ?>
+			<?php echo simple_theme_site_branding(); ?>
 		</div><!-- .site-branding -->
 
 		<a id="primary-nav-button" class="blank-theme-mobile-nav-button menu-toggle" href="#site-navigation"><?php esc_html_e( 'Mobile Menu' , 'blank-theme' ); ?></a>
@@ -45,4 +45,4 @@
 	</header><!-- #masthead -->
 
 
-	<div id="content" class="site-content row">
+	<div id="content" class="site-content">
