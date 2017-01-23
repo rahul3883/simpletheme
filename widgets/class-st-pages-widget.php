@@ -28,9 +28,9 @@ class St_Pages_Widget extends WP_Widget {
 		?>
 
 		<?php echo get_the_post_thumbnail( $instance['page_id'], array( 99, 99 ), array( 'class' => 'st-widget-post-image' ) ); ?>
-		<h2 class="st-widget-post-title">
+		<p class="st-widget-post-title">
 			<?php the_title(); ?>
-		</h2>
+		</p>
 		<p class="st-widget-post-content">
 			<?php echo wp_kses_post( wp_trim_words( get_the_content(), 15 ) ); ?>
 		</p>
