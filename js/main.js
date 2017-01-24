@@ -4,8 +4,6 @@ jQuery( function( $ ) {
 
 	window.BlankTheme = {
 		$backToTop: $( '#blank-theme-back-to-top' ),
-		prevArrow: $('#slider-arrow-left'),
-		nextArrow: $('#slider-arrow-right'),
 
 		init: function() {
 			//call to custom function
@@ -28,7 +26,6 @@ jQuery( function( $ ) {
 		},
 
 		createSlider: function() {
-			//console.log("jelll");
 			if ( $( '#blank-theme-slider' ).length ) {
 				$( '#blank-theme-slider' ).slick( {
 					infinite: true,
@@ -36,8 +33,20 @@ jQuery( function( $ ) {
 				  slidesToScroll: 1,
 					autoplay: false,
  					autoplaySpeed: 2000,
-					prevArrow: this.prevArrow,
-					nextArrow: this.nextArrow
+					prevArrow: $('#slider-arrow-left'),
+					nextArrow: $('#slider-arrow-right')
+				} );
+			}
+
+			if ( $( '#st-slider-testimonial' ).length ) {
+				$( '#st-slider-testimonial' ).slick( {
+					infinite: true,
+				  slidesToShow: 1,
+				  slidesToScroll: 1,
+					autoplay: false,
+ 					autoplaySpeed: 2000,
+					prevArrow: $('#slider-tm-arrow-left'),
+					nextArrow: $('#slider-tm-arrow-right')
 				} );
 			}
 		},

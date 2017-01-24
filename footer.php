@@ -10,58 +10,60 @@
 
 </div><!-- #content -->
 
-<footer style="border:1px solid black;" id="colophon" class="site-footer" role="contentinfo">
-	<h2>Contact Us</h2>
+<footer id="colophon" class="site-footer" role="contentinfo">
+	<div class="st-content-wrapper">
 
-	<div>
+		<h2 class="st-footer-head">Contact Us</h2>
 
-		<?php
+		<div class="row">
 
-		global $st_customizer;
+			<?php
 
-		$contact_head					= get_theme_mod( 'contact_head', $st_customizer['contact_head'] );
-		$contact_text					= get_theme_mod( 'contact_text', $st_customizer['contact_text'] );
-		$link_facebook				= get_theme_mod( 'link_facebook', $st_customizer['link_facebook'] );
-		$link_twitter					= get_theme_mod( 'link_twitter', $st_customizer['link_twitter'] );
-		$link_google_plus			= get_theme_mod( 'link_google_plus', $st_customizer['link_google_plus'] );
-		$contact_website_name	= get_theme_mod( 'contact_website_name', $st_customizer['contact_website_name'] );
-		$contact_website_link	= get_theme_mod( 'contact_website_link', $st_customizer['contact_website_link'] );
-		$contact_number				= get_theme_mod( 'contact_number', $st_customizer['contact_number'] );
-		$contact_email				= get_theme_mod( 'contact_email', $st_customizer['contact_email'] );
+			global $st_customizer;
 
-		?>
+			$contact_head					= get_theme_mod( 'contact_head', $st_customizer['contact_head'] );
+			$contact_text					= get_theme_mod( 'contact_text', $st_customizer['contact_text'] );
+			$link_facebook				= get_theme_mod( 'link_facebook', $st_customizer['link_facebook'] );
+			$link_twitter					= get_theme_mod( 'link_twitter', $st_customizer['link_twitter'] );
+			$link_google_plus			= get_theme_mod( 'link_google_plus', $st_customizer['link_google_plus'] );
+			$contact_website_name	= get_theme_mod( 'contact_website_name', $st_customizer['contact_website_name'] );
+			$contact_website_link	= get_theme_mod( 'contact_website_link', $st_customizer['contact_website_link'] );
+			$contact_number				= get_theme_mod( 'contact_number', $st_customizer['contact_number'] );
+			$contact_email				= get_theme_mod( 'contact_email', $st_customizer['contact_email'] );
 
-		<div id="st-contact-headers">
-			<h3><?php echo $contact_head; ?></h3>
-			<p><?php echo $contact_text; ?></p>
+			?>
+
+			<div class="large-6 medium-6 small-6 column">
+
+				<h3 class="st-contact-head"><?php echo $contact_head; ?></h3>
+				<p class="st-contact-text"><?php echo $contact_text; ?></p>
+
+				<div class="st-social-links">
+					<a href="<?php echo $link_facebook; ?>">
+						<img src="<?php echo BLANK_THEME_IMAGE_DIRECTORY . '/Facebook.png'; ?>">
+					</a>
+
+					<a href="<?php echo $link_twitter; ?>">
+						<img src="<?php echo BLANK_THEME_IMAGE_DIRECTORY . '/Twitter.png'; ?>">
+					</a>
+
+					<a href="<?php echo $link_google_plus; ?>">
+						<img src="<?php echo BLANK_THEME_IMAGE_DIRECTORY . '/g+.png'; ?>">
+					</a>
+				</div>
+
+				<a class="st-contact-info" href="<?php echo $contact_website_link; ?>"><?php echo $contact_website_name; ?></a>
+				<p class="st-contact-info"><?php echo $contact_number; ?></p>
+				<a class="st-contact-info" href="mailto:<?php echo $contact_email; ?>"><?php echo $contact_email; ?></a>
+
+			</div>
+
+			<div id="form-container" class="large-6 medium-6 small-6 column">
+				<?php gravity_form( 1, false, false, false, '', true, 10 ); ?>
+			</div>
+
 		</div>
 
-		<div id="st-social-links">
-
-			<a href="<?php echo $link_facebook; ?>">
-				<img src="<?php echo BLANK_THEME_IMAGE_DIRECTORY . '/Facebook.png'; ?>">
-			</a>
-
-			<a href="<?php echo $link_twitter; ?>">
-				<img src="<?php echo BLANK_THEME_IMAGE_DIRECTORY . '/Twitter.png'; ?>">
-			</a>
-
-			<a href="<?php echo $link_google_plus; ?>">
-				<img src="<?php echo BLANK_THEME_IMAGE_DIRECTORY . '/g+.png'; ?>">
-			</a>
-
-		</div>
-
-		<div id="st-contact-info">
-			<a class="st-contact-text" href="<?php echo $contact_website_link; ?>"><?php echo $contact_website_name; ?></a>
-			<p class="st-contact-text"><?php echo $contact_number; ?></p>
-			<a class="st-contact-text" href="mailto:<?php echo $contact_email; ?>"><?php echo $contact_email; ?></a>
-		</div>
-
-	</div>
-
-	<div id="form-container" style="width:50%;">
-		<?php gravity_form( 1, true, true, false, '', true, 10 ); ?>
 	</div>
 
 </footer><!-- #colophon -->

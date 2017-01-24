@@ -19,18 +19,91 @@
 	bottom: 0;
 }
 
+#st-slider-container {
+	position: relative;
+}
 
 #slider-navigator {
 	z-index: 10;
+	width: 100%;
 }
 
+#slider-navigator > .slider-arrow {
+	position: absolute;
+	top: calc( 50% - 51px / 2 );
+}
+
+#slider-navigator > .arrow-left {
+	left: 2.083%;
+}
+
+#slider-navigator > .arrow-right {
+	right: 2.083%;
+}
+
+
 .slider-arrow {
+
 }
 
 .arrow-left {
 	float: left;
+	content: url('/wp-content/themes/simpletheme1/images/slicing/SlicingHomepage/arrow-left.png');
 }
 
 .arrow-right {
 	float: right;
+	content: url('/wp-content/themes/simpletheme1/images/slicing/SlicingHomepage/arrow-right.png');
+}
+
+.arrow-left:hover{
+	content: url('/wp-content/themes/simpletheme1/images/slicing/SlicingHomepage/arrow-left-hover.png');
+}
+
+.arrow-right:hover{
+	content: url('/wp-content/themes/simpletheme1/images/slicing/SlicingHomepage/arrow-right-hover.png');
+}
+
+.st-slides {
+	position: relative;
+	text-align: center;
+}
+
+.st-slider-content-wrapper {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.st-slider-content-wrapper-inner{
+	display: inline-block;
+	vertical-align: middle;
+	max-width: rem-calc(1000);
+	z-index: 50;
+	color: $white;
+}
+
+.st-slider-title {
+	font-size: rem-calc(63);
+	font-weight: $font_semi_bold;
+	margin-bottom: rem-calc(4);
+}
+
+.st-slider-content {
+	font-size: rem-calc(26);
+	font-weight: $font_regular;
+	margin-bottom: rem-calc(50);
+}
+
+.st-slider-button {
+	width: 231px;
+	height: 69px;
+	line-height: 63px;
+	font-size: rem-calc(26);
+	font-weight: $font_semi_bold;
+	color: $white;
+	border: 3px solid $white;
+	border-radius: 3px;
+	display: inline-block;
 }

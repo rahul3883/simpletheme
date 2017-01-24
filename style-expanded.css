@@ -641,6 +641,46 @@ hr {
   background: #49CBCD;
 }
 
+.nomargin {
+  margin: 0;
+}
+
+.nomargin-top {
+  margin-top: 0;
+}
+
+.nomargin-right {
+  margin-right: 0;
+}
+
+.nomargin-bottom {
+  margin-bottom: 0;
+}
+
+.nomargin-left {
+  margin-left: 0;
+}
+
+.nopadding {
+  padding: 0;
+}
+
+.nopadding-top {
+  padding-top: 0;
+}
+
+.nopadding-right {
+  padding-right: 0;
+}
+
+.nopadding-bottom {
+  padding-bottom: 0;
+}
+
+.nopadding-left {
+  padding-left: 0;
+}
+
 .animated {
   -webkit-animation-duration: 1s;
           animation-duration: 1s;
@@ -3578,7 +3618,7 @@ textarea {
 }
 
 #st-portfolio-container {
-  background: #F1F1F1;
+  background: #f1f1f1;
   padding-top: 2.1875rem;
   padding-bottom: 3.75rem;
 }
@@ -3594,6 +3634,7 @@ textarea {
 .st-page-title {
   font-size: 2.625rem;
   color: #4E525D;
+  font-weight: 500;
 }
 
 .st-portfolio-outer {
@@ -3676,6 +3717,30 @@ textarea {
 .st-team-member-excerpt {
   font-size: 0.875rem;
   padding: 1.5625rem 0.9375rem 0 0.9375rem;
+}
+
+#st-pricing-container {
+  background: #f1f1f1;
+  padding-top: 7.375rem;
+  padding-bottom: 6.25rem;
+}
+
+.st-testimonial-text {
+  font-size: 1.1875rem;
+  font-weight: 500;
+  color: #4E525D;
+}
+
+.st-testimonial-name {
+  font-size: 1.3125rem;
+  font-weight: 500;
+  color: #9A8FAF;
+  margin-bottom: 0;
+}
+
+#st-testimonials-container {
+  padding-top: 8.4375rem;
+  padding-bottom: 5.9375rem;
 }
 
 /*--------------------------------------------------------------
@@ -3820,16 +3885,89 @@ textarea {
   bottom: 0;
 }
 
+#st-slider-container {
+  position: relative;
+}
+
 #slider-navigator {
   z-index: 10;
+  width: 100%;
+}
+
+#slider-navigator > .slider-arrow {
+  position: absolute;
+  top: -webkit-calc( 50% - 51px / 2 );
+  top: calc( 50% - 51px / 2 );
+}
+
+#slider-navigator > .arrow-left {
+  left: 2.083%;
+}
+
+#slider-navigator > .arrow-right {
+  right: 2.083%;
 }
 
 .arrow-left {
   float: left;
+  content: url("/wp-content/themes/simpletheme1/images/slicing/SlicingHomepage/arrow-left.png");
 }
 
 .arrow-right {
   float: right;
+  content: url("/wp-content/themes/simpletheme1/images/slicing/SlicingHomepage/arrow-right.png");
+}
+
+.arrow-left:hover {
+  content: url("/wp-content/themes/simpletheme1/images/slicing/SlicingHomepage/arrow-left-hover.png");
+}
+
+.arrow-right:hover {
+  content: url("/wp-content/themes/simpletheme1/images/slicing/SlicingHomepage/arrow-right-hover.png");
+}
+
+.st-slides {
+  position: relative;
+  text-align: center;
+}
+
+.st-slider-content-wrapper {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.st-slider-content-wrapper-inner {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 62.5rem;
+  z-index: 50;
+  color: #FFFFFF;
+}
+
+.st-slider-title {
+  font-size: 3.9375rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.st-slider-content {
+  font-size: 1.625rem;
+  font-weight: 500;
+  margin-bottom: 3.125rem;
+}
+
+.st-slider-button {
+  width: 231px;
+  height: 69px;
+  line-height: 63px;
+  font-size: 1.625rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  border: 3px solid #FFFFFF;
+  border-radius: 3px;
+  display: inline-block;
 }
 
 /*--------------------------------------------------------------
@@ -3936,6 +4074,7 @@ textarea {
 .plan-name {
   font-size: 1.625rem;
   font-weight: 500;
+  padding: 1rem;
   color: #FFFFFF;
 }
 
@@ -3947,16 +4086,40 @@ textarea {
   font-size: 1.25rem;
   font-weight: 500;
   color: #485460;
+  padding: 0.96875rem;
 }
 
 .plan-button-wrapper {
   background: #F8F9FB;
+  padding: 1.8125rem;
 }
 
 .plan-button {
+  width: 170px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 3px;
   font-size: 1.0625rem;
   font-weight: 600;
   color: #FFFFFF;
+  display: inline-block;
+}
+
+ul.plan-features {
+  list-style-type: none;
+}
+
+.plan-price, .plan-features > li {
+  border-bottom: 1px solid #ECF0F1;
+}
+
+.plan-features > li {
+  width: 100%;
+  padding: 0.59375rem;
+  background: #FFFFFF;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #8C9299;
 }
 
 /*--------------------------------------------------------------
@@ -4007,6 +4170,39 @@ textarea {
 /*--------------------------------------------------------------
 ## Foooter
 --------------------------------------------------------------*/
+.site-footer {
+  background: url("/wp-content/themes/simpletheme1/images/slicing/SlicingHomepage/contact-us.jpg");
+}
+
+.st-footer-head {
+  text-align: center;
+  font-size: 2.625rem;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.st-contact-head {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.st-contact-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.st-contact-info {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #BFACE2;
+}
+
+.gform_wrapper {
+  margin: 0;
+}
+
 /*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/

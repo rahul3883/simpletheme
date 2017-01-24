@@ -68,6 +68,7 @@
 .plan-name {
 	font-size: rem-calc(26);
 	font-weight: $font_regular;
+	padding: rem-calc(16);
 	color: $white;
 }
 
@@ -79,6 +80,7 @@
 	font-size: rem-calc(20);
 	font-weight: $font_regular;
 	color: #485460;
+	padding: rem-calc(15.5);
 }
 
 .plan-features {
@@ -87,10 +89,33 @@
 
 .plan-button-wrapper {
 	background: $plan_background;
+	padding: rem-calc(29);
 }
 
 .plan-button {
+	width: 170px;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 3px;
 	font-size: rem-calc(17);
 	font-weight: $font_semi_bold;
 	color: $white;
+	display: inline-block;
+}
+
+ul.plan-features {
+	list-style-type: none;
+}
+
+.plan-price, .plan-features > li {
+	border-bottom: 1px solid #ECF0F1;
+}
+
+.plan-features > li {
+	width: 100%;
+	padding: rem-calc(9.5);
+	background: $white;
+	font-weight: $font_regular;
+	font-size: rem-calc(14);
+	color: #8C9299;
 }

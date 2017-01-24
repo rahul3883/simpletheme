@@ -1,0 +1,34 @@
+.site-footer {
+	background: url('/wp-content/themes/simpletheme1/images/slicing/SlicingHomepage/contact-us.jpg');
+}
+
+.st-footer-head {
+	text-align: center;
+	font-size: rem-calc(42);
+	font-weight: $font_regular;
+	color: $white;
+}
+
+.st-contact-head {
+	font-size: rem-calc(24);
+	font-weight: $font_regular;
+	color: $white;
+}
+
+.st-contact-text {
+	font-size: rem-calc(14);
+	font-weight: $font_regular;
+	color: $white;
+}
+
+.st-contact-info {
+	font-size: rem-calc(14);
+	font-weight: $font_regular;
+	color: #BFACE2;
+}
+
+
+//Gravity Forms
+.gform_wrapper {
+	margin: 0;
+}

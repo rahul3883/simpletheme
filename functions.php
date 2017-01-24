@@ -270,6 +270,16 @@ if ( function_exists( 'add_image_size' ) ) {
 }
 
 function st_custom_post_type() {
+	register_post_type( 'st_slider', [
+		'labels'		  => [
+			'name'					=> __( 'Slider', 'blank-theme' ),
+			'singular_name'	=> __( 'Slider', 'blank-theme' ),
+		],
+		'supports'	  => [ 'title', 'editor', 'thumbnail' ],
+		'public'		  => true,
+		'has_archive'	=> true,
+	] );
+
 	register_post_type( 'st_portfolio', [
 		'labels'			=> [
 			'name'					=> __( 'Portfolio', 'blank-theme' ),

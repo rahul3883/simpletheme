@@ -20,7 +20,7 @@
 
 //Portfolio
 #st-portfolio-container {
-	background: #F1F1F1;
+	background: $color__background-screen;
 	padding-top: rem-calc(35);
 	padding-bottom: rem-calc(60);
 }
@@ -36,7 +36,7 @@
 .st-page-title {
 	font-size: rem-calc(42);
 	color: $color_content;
-	//padding-top: rem-calc(30);
+	font-weight: $font_regular;
 }
 
 .st-portfolio-outer {
@@ -121,4 +121,33 @@
 .st-team-member-excerpt {
 	font-size: rem-calc(14);
 	padding: rem-calc(25) rem-calc(15) 0 rem-calc(15);
+}
+
+#st-pricing-container {
+	background: $color__background-screen;
+	padding-top: rem-calc(118);
+	padding-bottom: rem-calc(100);
+}
+
+
+#st-testimonial-header {
+
+}
+
+.st-testimonial-text {
+	font-size: rem-calc(19);
+	font-weight: $font_regular;
+	color: $color_content;
+}
+
+.st-testimonial-name {
+	font-size: rem-calc(21);
+	font-weight: $font_regular;
+	color: #9A8FAF;
+	margin-bottom: 0;
+}
+
+#st-testimonials-container {
+	padding-top: rem-calc(135);
+	padding-bottom: rem-calc(95);
 }

@@ -27,12 +27,12 @@ class St_Pricing_Widget extends WP_Widget {
 		?>
 
 		<div class="plan-name-wrapper <?php echo $plan_color_class; ?>">
-			<h3 class="plan-name"><?php echo $plan_name; ?></h3>
+			<h3 class="plan-name nomargin"><?php echo $plan_name; ?></h3>
 		</div>
 		<div class="plan-price-wrapper">
-			<h4 class="plan-price"><?php echo $plan_price; ?></h4>
+			<h4 class="plan-price nomargin"><?php echo $plan_price; ?></h4>
 		</div>
-		<ul class="plan-features">
+		<ul class="plan-features nopadding nomargin">
 
 			<?php
 			foreach ( $plan_features as $feature ) {
@@ -43,8 +43,8 @@ class St_Pricing_Widget extends WP_Widget {
 			?>
 
 		</ul>
-		<div class="plan-button-wrapper row">
-			<a style="margin: auto;" class="plan-button large-6 column <?php echo $plan_color_class; ?>" href="<?php echo $plan_link; ?>"><?php echo $plan_button_text; ?></a>
+		<div class="plan-button-wrapper">
+			<a class="plan-button <?php echo $plan_color_class; ?>" href="<?php echo $plan_link; ?>"><?php echo $plan_button_text; ?></a>
 		</div>
 
 		<?php
