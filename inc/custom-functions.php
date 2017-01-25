@@ -241,7 +241,7 @@ if ( ! function_exists( 'simple_theme_site_branding' ) ) {
 		?>
 
 		<?php helper_span(); ?>
-		<a href="<?php site_url(); ?>">
+		<a href="<?php echo get_home_url(); ?>">
 			<img class="site-branding-image v-align-middle" src="<?php echo $path; ?>">
 		</a>
 

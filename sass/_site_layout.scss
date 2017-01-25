@@ -56,10 +56,11 @@
 	width: 100%;
 	height: 100%;
 	border-radius: 4px;
-	background: rgba(255, 204, 0, 0.7);
+	background: rgba(160, 160, 160, 0.7);
 	opacity: 0;
 	-webkit-transition: opacity 0.5s;
 	transition: opacity 0.5s;
+	color: #484744;
 }
 
 .st-portfolio-post-title {
@@ -68,7 +69,7 @@
 	text-shadow: rgba(110, 110, 110, 0.5) 0 0 20px;
 }
 
-.st-portfolio-content-wrapper:hover > .st-portfolio-post-title-wrapper {
+.st-portfolio-content-wrapper:hover .st-portfolio-post-title-wrapper {
 	opacity: 1;
 }
 
@@ -111,6 +112,9 @@
 .st-team-member-title {
 	font-size: rem-calc(22);
 	line-height: rem-calc(27);
+}
+.st-team-member-title:hover {
+	color: $color__theme;
 }
 
 .st-team-member-designation {

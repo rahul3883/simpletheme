@@ -35,8 +35,8 @@
 
 			<div class="large-6 medium-6 small-6 column">
 
-				<h3 class="st-contact-head"><?php echo $contact_head; ?></h3>
-				<p class="st-contact-text"><?php echo $contact_text; ?></p>
+				<h3 class="st-contact-head nomargin-bottom"><?php echo $contact_head; ?></h3>
+				<p class="st-contact-text large-10 medium-10 small-10"><?php echo $contact_text; ?></p>
 
 				<div class="st-social-links">
 					<a href="<?php echo $link_facebook; ?>">
@@ -53,12 +53,12 @@
 				</div>
 
 				<a class="st-contact-info" href="<?php echo $contact_website_link; ?>"><?php echo $contact_website_name; ?></a>
-				<p class="st-contact-info"><?php echo $contact_number; ?></p>
+				<a class="st-contact-info" href="tel:<?php echo $contact_number; ?>"><?php echo $contact_number; ?></a>
 				<a class="st-contact-info" href="mailto:<?php echo $contact_email; ?>"><?php echo $contact_email; ?></a>
 
 			</div>
 
-			<div id="form-container" class="large-6 medium-6 small-6 column">
+			<div id="form-container" class="large-6 medium-6 small-6 column st-gform-wrapper">
 				<?php gravity_form( 1, false, false, false, '', true, 10 ); ?>
 			</div>
 

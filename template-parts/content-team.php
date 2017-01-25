@@ -35,9 +35,13 @@
 
 				<div class="large-3 column">
 					<div class="st-team-member-thumbnail">
-						<?php the_post_thumbnail( 'st-team' ); ?>
+						<a href="<?php the_permalink(); ?>">
+							<?php the_post_thumbnail( 'st-team' ); ?>
+						</a>
 					</div>
-					<p class="st-team-member-title st-team-text"><?php the_title(); ?></p>
+					<a href="<?php the_permalink(); ?>">
+						<p class="st-team-member-title st-team-text"><?php the_title(); ?></p>
+					</a>
 					<p class="st-team-member-designation st-team-text"><?php echo get_post_meta( get_the_ID(), '_team_member_designation', true ) ?></p>
 					<p class="st-team-member-excerpt st-team-text"><?php echo wp_kses_post( wp_trim_words( get_the_excerpt(), 15 ) ); ?></p>
 				</div>

@@ -34,7 +34,6 @@
 				&:hover > ul,
 				&.focus > ul {
 					left: 100%;
-					border-bottom: 3px solid $color__link-hover;
 				}
 			}
 
@@ -45,16 +44,13 @@
 			&:hover > a,
 			&.focus > a {
 				//color: $color__link-hover;
-
 			}
 		}
 
 		li:hover > ul,
 		li.focus > ul {
 			left: auto;
-
 			// display: block;
-
 		}
 	}
 
@@ -69,9 +65,6 @@
 		&:hover > a,
 		&.focus > a {
 			color: $color__link-hover;
-		}
-		&.focus_underline {
-			border-bottom: 3px solid $color__link-hover;
 		}
 	}
 
@@ -103,8 +96,13 @@
 	.current_page_item > a,
 	.current-menu-item > a,
 	.current_page_ancestor > a {
-
+		color: $color__link-hover;
 	}
+
+	.current-menu-item, .current_page_item {
+		border-bottom: 3px solid $color__link-hover;
+	}
+
 }
 
 /* Small menu. */

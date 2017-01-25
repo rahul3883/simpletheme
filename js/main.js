@@ -22,7 +22,7 @@ jQuery( function( $ ) {
 		},
 
 		events: function() {
-
+			
 		},
 
 		createSlider: function() {

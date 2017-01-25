@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Blank Theme 1.0.0\n"
 "Report-Msgid-Bugs-To: http://community.rtcamp.com/c/premium-themes\n"
-"POT-Creation-Date: 2017-01-24 09:40:38+00:00\n"
+"POT-Creation-Date: 2017-01-25 06:00:42+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -711,10 +711,6 @@ msgstr ""
 msgid "Mobile Menu"
 msgstr ""
 
-#: home.php:44
-msgid "Learn More"
-msgstr ""
-
 #: inc/custom-functions.php:68
 msgid "%1$s by %2$s"
 msgstr ""
@@ -981,7 +977,11 @@ msgstr ""
 msgid "Pages:"
 msgstr ""
 
-#: template-parts/content-testimonials.php:13
+#: template-parts/content-slider.php:29
+msgid "Learn More"
+msgstr ""
+
+#: template-parts/content-testimonials.php:14
 msgid "What Clients Say"
 msgstr ""
 

@@ -24,7 +24,7 @@
 							<?php echo wp_kses_post( wp_trim_words( get_the_content(), 15 ) ); ?>
 
 						</p>
-						<a class="st-slider-button" href="#">
+						<a class="st-slider-button" href="<?php the_permalink(); ?>">
 
 							<?php echo esc_html__( 'Learn More', 'blank-theme' ); ?>
 

@@ -60,6 +60,7 @@
 	/**
 	 * Sets or removes .focus class on an element.
 	 */
+	 var i=0;
 	function toggleFocus() {
 		var self = this;
 
@@ -69,18 +70,14 @@
 			// On li elements toggle the class .focus.
 			if ( 'li' === self.tagName.toLowerCase() ) {
 				if ( -1 !== self.className.indexOf( 'focus' ) ) {
-					self.className = self.className.replace( ' focus focus_underline', '' );
+					self.className = self.className.replace( ' focus', '' );
 				} else {
-					self.className += ' focus focus_underline';
+					self.className += ' focus';
 				}
 			}
-
+			console.log(self);
 			self = self.parentElement;
 		}
 	}
-
-	//firstItem = menu.querySelector( 'li:first-child > a' );
-	//toggleFocus( firstItem );
-	//firstItem.className += ' focus focus_underline';
 
 } )();
