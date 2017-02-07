@@ -73,6 +73,8 @@ if ( ! function_exists( 'blank_theme_copyright_text' ) ) {
 	}
 }
 
+
+
 if ( ! function_exists( 'blank_theme_site_branding' ) ) {
 	function blank_theme_site_branding() {
 		$site_title = $site_logo = '';
@@ -82,9 +84,20 @@ if ( ! function_exists( 'blank_theme_site_branding' ) ) {
 		}
 
 		$site_title   = get_bloginfo( 'name' );
-		$hide_tagline = get_theme_mod( 'blank_theme_hide_tagline' );
+		$hide_tagline = get_theme_mod( 'st_hide_tagline', false );
 		$title_class  = $site_logo ? ' screen-reader-text' : false;
 		$desc_class   = $hide_tagline ? ' screen-reader-text' : false;
+
+		//die( 'hide? : ' . $hide_tagline );
+
+		/*
+		if ( ! empty( $site_logo ) ) {
+			echo 'true<br>';
+		} else {
+			echo 'false<br>';
+		}
+		die( $site_logo . '<br>' . $title_class );
+		*/
 
 		$site_logo_args = array(
 			'a' => array(
@@ -103,18 +116,21 @@ if ( ! function_exists( 'blank_theme_site_branding' ) ) {
 			),
 		);
 
-		echo wp_kses( $site_logo, $site_logo_args );
-
-		if ( is_front_page() && is_home() ) { ?>
-			<h1 class="site-title<?php echo esc_attr( $title_class ); ?>"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php echo esc_html( $site_title ); ?></a></h1>
-		<?php } else { ?>
-			<h2 class="site-title<?php echo esc_attr( $title_class ); ?>"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php echo esc_html( $site_title ); ?></a></h2>
-		<?php }
-
+		helper_span();
 		?>
+		<div class="site-branding-content v-align-middle" itemscope itemtype ="http://schema.org/WebPage">
+			<?php
+			echo wp_kses( $site_logo, $site_logo_args );
 
-		<p class="site-description<?php echo esc_attr( $desc_class ); ?>"><?php bloginfo( 'description' ); ?></p>
+			if ( is_front_page() && is_home() ) { ?>
+				<h1 class="site-title<?php echo esc_attr( $title_class ); ?>"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php echo esc_html( $site_title ); ?></a></h1>
+			<?php } else { ?>
+				<h2 class="site-title<?php echo esc_attr( $title_class ); ?>"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php echo esc_html( $site_title ); ?></a></h2>
+			<?php }
+			?>
 
+			<p id="site-tagline" class="site-description<?php echo esc_attr( $desc_class ); ?>"><?php bloginfo( 'description' ); ?></p>
+		</div>
 		<?php
 	}
 }

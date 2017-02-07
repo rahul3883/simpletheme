@@ -22,17 +22,19 @@ jQuery( function( $ ) {
 		},
 
 		events: function() {
-			
+
 		},
 
 		createSlider: function() {
 			if ( $( '#blank-theme-slider' ).length ) {
 				$( '#blank-theme-slider' ).slick( {
+					fade: false,
+					cssEase: 'linear',
 					infinite: true,
 				  slidesToShow: 1,
 				  slidesToScroll: 1,
 					autoplay: false,
- 					autoplaySpeed: 2000,
+ 					autoplaySpeed: 3000,
 					prevArrow: $('#slider-arrow-left'),
 					nextArrow: $('#slider-arrow-right')
 				} );

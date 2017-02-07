@@ -36,6 +36,18 @@ class St_Customizer {
 
 		global $st_customizer;
 
+		$wp_customize->add_setting( 'st_hide_tagline', array(
+			'default' 	=> false,
+			'transport' => 'postMessage',
+		));
+
+		$wp_customize->add_control( 'st_hide_tagline', array(
+				'label' 		=> esc_html__( 'Hide Tagline', 'blank-theme' ),
+		    'section' 	=> 'title_tagline',
+		    'type' 			=> 'checkbox',
+		));
+
+		/*
 		//Contact Us Panel
 		$wp_customize->add_panel( 'contact_panel', array(
 			'title'				=> __( 'Contact Us', 'blank-theme' ),
@@ -167,9 +179,63 @@ class St_Customizer {
 			'section'			=> 'contact_info',
 			'type'				=> 'text',
 		) );
+		*/
+
+		$this->cpt_section( $wp_customize );
 
 	}
 
+	function cpt_section( $wp_customize ) {
+
+		$wp_customize->add_section( 'toogle_post_types', array(
+			'title'				=> esc_html__( 'Toogle CPT', 'blank-theme' ),
+		) );
+
+		$wp_customize->add_setting( 'toogle_st_slider', array(
+			'default'			=> true,
+			'transport'		=> 'postMessage',
+		) );
+
+		$wp_customize->add_control( 'toogle_st_slider', array(
+			'label'				=> 'Main Slider',
+			'section'			=> 'toogle_post_types',
+			'type'				=> 'checkbox',
+		) );
+
+		$wp_customize->add_setting( 'toogle_st_portfolio', array(
+			'default'			=> true,
+			'transport'		=> 'postMessage',
+		) );
+
+		$wp_customize->add_control( 'toogle_st_portfolio', array(
+			'label'				=> 'Portfolio',
+			'section'			=> 'toogle_post_types',
+			'type'				=> 'checkbox',
+		) );
+
+		$wp_customize->add_setting( 'toogle_st_team', array(
+			'default'			=> true,
+			'transport'		=> 'postMessage',
+		) );
+
+		$wp_customize->add_control( 'toogle_st_team', array(
+			'label'				=> 'Team',
+			'section'			=> 'toogle_post_types',
+			'type'				=> 'checkbox',
+		) );
+
+		$wp_customize->add_setting( 'toogle_st_testimonials', array(
+			'default'			=> true,
+			'transport'		=> 'postMessage',
+		) );
+
+		$wp_customize->add_control( 'toogle_st_testimonials', array(
+			'label'				=> 'Testimonials',
+			'section'			=> 'toogle_post_types',
+			'type'				=> 'checkbox',
+		) );
+
+	}
 }
 
 new St_Customizer();

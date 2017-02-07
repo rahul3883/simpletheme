@@ -1,53 +1,60 @@
-<div id="blank-theme-slider">
+<?php
 
-	<?php
+$custom_query = new WP_Query( array( 'post_type' => 'st_slider' ) );
+if ( $custom_query->have_posts() ) {
+	?>
 
-	$custom_query = new WP_Query( array( 'post_type' => 'st_slider' ) );
-	if ( $custom_query->have_posts() ) {
-		while ( $custom_query->have_posts() ) {
-			$custom_query->the_post();
-			?>
+	<div id="st-slider-container" class="st-section-container">
 
-			<div class="st-slides">
+		<div id="blank-theme-slider">
 
-				<?php the_post_thumbnail(); ?>
-				<div class="st-slider-content-wrapper">
-					<div class="st-content-wrapper st-slider-content-wrapper-inner">
+			<?php
 
-						<h3 class="st-slider-title">
+			while ( $custom_query->have_posts() ) {
+				$custom_query->the_post();
+				?>
 
-							<?php the_title(); ?>
+					<div class="st-slides">
 
-						</h3>
-						<p class="st-slider-content">
+						<?php the_post_thumbnail( 'st-slider' ); ?>
+						<div class="st-slider-content-wrapper">
+							<div class="st-content-wrapper st-slider-content-wrapper-inner">
 
-							<?php echo wp_kses_post( wp_trim_words( get_the_content(), 15 ) ); ?>
+								<h3 class="st-slider-title">
 
-						</p>
-						<a class="st-slider-button" href="<?php the_permalink(); ?>">
+									<?php the_title(); ?>
 
-							<?php echo esc_html__( 'Learn More', 'blank-theme' ); ?>
+								</h3>
+								<p class="st-slider-content">
 
-						</a>
+									<?php echo wp_kses_post( wp_trim_words( get_the_content(), 15 ) ); ?>
+
+								</p>
+								<a class="st-slider-button" href="<?php the_permalink(); ?>">
+
+									<?php echo esc_html__( 'Learn More', 'blank-theme' ); ?>
+
+								</a>
+
+							</div>
+
+							<?php helper_span(); ?>
+
+						</div>
 
 					</div>
 
-					<?php helper_span(); ?>
+					<?php
+			}
+			?>
 
-				</div>
+		</div>
 
-			</div>
+		<div id="slider-navigator">
+			<img src="<?php echo BLANK_THEME_SLIDER_LEFT_ARROW; ?>" id="slider-arrow-left" class="slider-arrow arrow-left" alt="Left" onmouseover="this.src='<?php echo BLANK_THEME_SLIDER_LEFT_HOVER_ARROW; ?>'" onmouseout="this.src='<?php echo BLANK_THEME_SLIDER_LEFT_ARROW; ?>'">
+			<img src="<?php echo BLANK_THEME_SLIDER_RIGHT_ARROW; ?>" id="slider-arrow-right" class="slider-arrow arrow-right" alt="Right" onmouseover="this.src='<?php echo BLANK_THEME_SLIDER_RIGHT_HOVER_ARROW; ?>'" onmouseout="this.src='<?php echo BLANK_THEME_SLIDER_RIGHT_ARROW; ?>'">
+		</div>
 
-			<?php
-		}
-	}
-	?>
+	</div>
 
-	<div><img src="<?php echo get_template_directory_uri() . '/images/slicing/SlicingBlogpage/image.jpg'; ?>"></div>
-
-</div>
-
-<div id="slider-navigator">
-	<img id="slider-arrow-left" class="slider-arrow arrow-left">
-	<img id="slider-arrow-right" class="slider-arrow arrow-right">
-</div>
+<?php }

@@ -1,6 +1,6 @@
 <?php
 /**
- * The sidebar containing the Widget Pricing.
+ * The sidebar containing the Widget Footer.
  *
  * @package Blank Theme
  */

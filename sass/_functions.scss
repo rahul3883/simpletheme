@@ -53,3 +53,9 @@ $font__rem-base: 16px;
 
 	@return $remValues;
 }
+
+
+/// convert px to em
+@function em($pixels, $context: $font__rem-base) {
+  @return #{$pixels/$context}em;
+}

@@ -36,7 +36,7 @@ module.exports = function( grunt ) {
 					  },
 			minify: {
 						options: {
-							style: 'nested', // Nested / compact / compressed / expanded
+							style: 'Nested', // Nested / compact / compressed / expanded
 							sourcemap: 'auto' // Auto / file / inline / none
 						},
 						files: {

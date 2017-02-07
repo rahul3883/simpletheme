@@ -10,63 +10,33 @@
 
 </div><!-- #content -->
 
+
 <footer id="colophon" class="site-footer" role="contentinfo">
-	<div class="st-content-wrapper">
 
-		<h2 class="st-footer-head">Contact Us</h2>
+	<?php if ( is_active_sidebar( 'sidebar-2' ) ) { ?>
 
-		<div class="row">
+		<div id="st-contact-us" class="st-content-wrapper">
 
-			<?php
+			<h2 class="st-footer-head">Contact Us</h2>
 
-			global $st_customizer;
+			<div class="row">
 
-			$contact_head					= get_theme_mod( 'contact_head', $st_customizer['contact_head'] );
-			$contact_text					= get_theme_mod( 'contact_text', $st_customizer['contact_text'] );
-			$link_facebook				= get_theme_mod( 'link_facebook', $st_customizer['link_facebook'] );
-			$link_twitter					= get_theme_mod( 'link_twitter', $st_customizer['link_twitter'] );
-			$link_google_plus			= get_theme_mod( 'link_google_plus', $st_customizer['link_google_plus'] );
-			$contact_website_name	= get_theme_mod( 'contact_website_name', $st_customizer['contact_website_name'] );
-			$contact_website_link	= get_theme_mod( 'contact_website_link', $st_customizer['contact_website_link'] );
-			$contact_number				= get_theme_mod( 'contact_number', $st_customizer['contact_number'] );
-			$contact_email				= get_theme_mod( 'contact_email', $st_customizer['contact_email'] );
+				<?php dynamic_sidebar( 'sidebar-2' ); ?>
 
-			?>
-
-			<div class="large-6 medium-6 small-6 column">
-
-				<h3 class="st-contact-head nomargin-bottom"><?php echo $contact_head; ?></h3>
-				<p class="st-contact-text large-10 medium-10 small-10"><?php echo $contact_text; ?></p>
-
-				<div class="st-social-links">
-					<a href="<?php echo $link_facebook; ?>">
-						<img src="<?php echo BLANK_THEME_IMAGE_DIRECTORY . '/Facebook.png'; ?>">
-					</a>
-
-					<a href="<?php echo $link_twitter; ?>">
-						<img src="<?php echo BLANK_THEME_IMAGE_DIRECTORY . '/Twitter.png'; ?>">
-					</a>
-
-					<a href="<?php echo $link_google_plus; ?>">
-						<img src="<?php echo BLANK_THEME_IMAGE_DIRECTORY . '/g+.png'; ?>">
-					</a>
-				</div>
-
-				<a class="st-contact-info" href="<?php echo $contact_website_link; ?>"><?php echo $contact_website_name; ?></a>
-				<a class="st-contact-info" href="tel:<?php echo $contact_number; ?>"><?php echo $contact_number; ?></a>
-				<a class="st-contact-info" href="mailto:<?php echo $contact_email; ?>"><?php echo $contact_email; ?></a>
-
-			</div>
-
-			<div id="form-container" class="large-6 medium-6 small-6 column st-gform-wrapper">
-				<?php gravity_form( 1, false, false, false, '', true, 10 ); ?>
 			</div>
 
 		</div>
 
-	</div>
+	<?php } ?>
+
+	<div class="site-info row-container">
+		<span class="blank-theme-copyright-text"><?php echo blank_theme_copyright_text(); ?></span>
+		<span class="sep"> | </span>
+		<a class="blank-theme-author-footer" href="<?php echo esc_url( 'https://github.com/rahul3883/simpletheme' ); ?>" target="_blank"><?php esc_html_e( 'Simple Theme', 'blank-theme' ); ?></a>
+	</div><!-- .site-info -->
 
 </footer><!-- #colophon -->
+
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

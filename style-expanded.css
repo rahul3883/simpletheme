@@ -1,9 +1,9 @@
 /*
-Theme Name: Blank Theme
+Theme Name: Simple Theme
 Theme URI: https://rtcamp.com/
-Author: rtCamp
+Author: Rahul Soni
 Author URI: https://rtcamp.com/
-Description: Blank Theme is a responsive multipurpose theme.
+Description: Simple Theme is a responsive multipurpose theme based on Blank Theme.
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -3611,7 +3611,7 @@ textarea {
 }
 
 .st-widget-pages-container {
-  padding: 6.5625rem 0;
+  padding: 4.375rem 0;
 }
 
 #st-portfolio-container {
@@ -3632,6 +3632,10 @@ textarea {
   font-size: 2.625rem;
   color: #4E525D;
   font-weight: 500;
+}
+
+.st-page-title.line-height {
+  line-height: 1.8;
 }
 
 .st-portfolio-outer {
@@ -3662,6 +3666,10 @@ textarea {
   margin: 0;
   font-size: 3.125rem;
   text-shadow: rgba(110, 110, 110, 0.5) 0 0 20px;
+  max-width: 95%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .st-portfolio-content-wrapper:hover .st-portfolio-post-title-wrapper {
@@ -3723,8 +3731,8 @@ textarea {
 
 #st-pricing-container {
   background: #f1f1f1;
-  padding-top: 7.375rem;
-  padding-bottom: 6.25rem;
+  padding-top: 4.875rem;
+  padding-bottom: 3.75rem;
 }
 
 .st-testimonial-text {
@@ -3920,22 +3928,21 @@ textarea {
 
 .arrow-left {
   float: left;
-  content: url("/wp-content/themes/simpletheme1/images/slicing/SlicingHomepage/arrow-left.png");
 }
 
 .arrow-right {
   float: right;
-  content: url("/wp-content/themes/simpletheme1/images/slicing/SlicingHomepage/arrow-right.png");
 }
 
-.arrow-left:hover {
-  content: url("/wp-content/themes/simpletheme1/images/slicing/SlicingHomepage/arrow-left-hover.png");
+/*
+.arrow-left:hover{
+	content: url('/wp-content/themes/simpletheme1/images/arrow-left-hover.png');
 }
 
-.arrow-right:hover {
-  content: url("/wp-content/themes/simpletheme1/images/slicing/SlicingHomepage/arrow-right-hover.png");
+.arrow-right:hover{
+	content: url('/wp-content/themes/simpletheme1/images/arrow-right-hover.png');
 }
-
+*/
 .st-slides {
   position: relative;
   text-align: center;
@@ -3966,8 +3973,17 @@ textarea {
   font-size: 1.625rem;
   font-weight: 500;
   margin-bottom: 3.125rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
+@media screen and (max-width: 36.5em) {
+  .st-slider-content {
+    -webkit-line-clamp: 1;
+  }
+}
 .st-slider-button {
   width: 231px;
   height: 69px;
@@ -3980,6 +3996,28 @@ textarea {
   display: inline-block;
 }
 
+@media screen and (max-width: 60em) {
+  .st-slider-content-wrapper-inner > .st-slider-title {
+    font-size: 6.54vw;
+  }
+
+  .st-slider-content-wrapper-inner > .st-slider-content {
+    font-size: -webkit-calc(8px + 1.9vw);
+    font-size: calc(8px + 1.9vw);
+    margin-bottom: 4.9vw;
+  }
+
+  .st-slider-content-wrapper-inner > .st-slider-button {
+    font-size: -webkit-calc(8px + 1.9vw);
+    font-size: calc(8px + 1.9vw);
+    width: -webkit-calc(30px + 21.026vw);
+    width: calc(30px + 21.026vw);
+    height: -webkit-calc(30px + 4.0796vw);
+    height: calc(30px + 4.0796vw);
+    line-height: -webkit-calc(30px - 6px + 4.0796vw);
+    line-height: calc(30px - 6px + 4.0796vw);
+  }
+}
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
@@ -4049,7 +4087,8 @@ textarea {
 }
 
 .st-widget-pages {
-  text-align: center;
+  padding-top: 2.1875rem;
+  padding-bottom: 2.1875rem;
 }
 
 .st-widget-post-image {
@@ -4079,6 +4118,11 @@ textarea {
   font-size: 14px;
   color: #FFFFFF;
   background-color: #49CBCD;
+}
+
+.st-widget-pricing {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 
 .plan-name {
@@ -4181,10 +4225,14 @@ ul.plan-features {
 ## Foooter
 --------------------------------------------------------------*/
 .site-footer {
-  background: url("/wp-content/themes/simpletheme1/images/slicing/SlicingHomepage/contact-us.jpg");
+  background: url("/wp-content/themes/simpletheme1/images/contact-us.jpg");
   background-size: cover;
   object-fit: contain;
-  padding: 6.25rem 0;
+  padding: 6.25rem 0 1.875rem 0;
+}
+
+.footer-column {
+  padding-bottom: 4.375rem;
 }
 
 .st-footer-head {
@@ -4220,47 +4268,94 @@ ul.plan-features {
   font-size: 0.875rem;
   font-weight: 500;
   color: #BFACE2;
-  display: block;
+  display: table;
 }
 
-.st-gform-wrapper .gform_wrapper {
+.st-gform-wrapper .gform_wrapper, .gform_widget .gform_wrapper {
   margin: 0;
 }
 
-.st-gform-wrapper .gform_wrapper ul li.gfield {
+.st-gform-wrapper .gform_wrapper ul.gform_fields li.gfield, .gform_widget .gform_wrapper ul.gform_fields li.gfield {
   margin: 0;
+  padding: 0;
 }
 
-.st-gform-wrapper .gform_wrapper ul li.gfield .gfield_label {
+.st-gform-wrapper .gform_wrapper ul li.gfield.gf_left_half, .gform_widget .gform_wrapper ul li.gfield.gf_left_half {
+  padding-right: 15px;
+}
+.st-gform-wrapper .gform_wrapper ul li.gfield.gf_right_half, .gform_widget .gform_wrapper ul li.gfield.gf_right_half {
+  padding-left: 15px;
+}
+
+@media only screen and (max-width: 641px) {
+  .st-gform-wrapper .gform_wrapper ul li.gfield.gf_left_half, .gform_widget .gform_wrapper ul li.gfield.gf_left_half,
+  .st-gform-wrapper .gform_wrapper ul li.gfield.gf_right_half,
+  .gform_widget .gform_wrapper ul li.gfield.gf_right_half,
+  .st-gform-wrapper .gform_wrapper ul li.gfield.gfield_error.gf_left_half,
+  .gform_widget .gform_wrapper ul li.gfield.gfield_error.gf_left_half,
+  .st-gform-wrapper .gform_wrapper ul li.gfield.gfield_error.gf_right_half,
+  .gform_widget .gform_wrapper ul li.gfield.gfield_error.gf_right_half {
+    padding: 0 0 1.25rem 0;
+  }
+  .st-gform-wrapper .gform_wrapper.gform_validation_error .top_label li.gfield.gfield_error.gf_left_half, .gform_widget .gform_wrapper.gform_validation_error .top_label li.gfield.gfield_error.gf_left_half,
+  .st-gform-wrapper .gform_wrapper.gform_validation_error .top_label li.gfield.gfield_error.gf_right_half,
+  .gform_widget .gform_wrapper.gform_validation_error .top_label li.gfield.gfield_error.gf_right_half {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    padding-right: 0;
+  }
+  .st-gform-wrapper .gform_wrapper ul li.gfield .ginput_container.ginput_container_textarea, .gform_widget .gform_wrapper ul li.gfield .ginput_container.ginput_container_textarea {
+    padding-top: 0;
+  }
+}
+.st-gform-wrapper .gform_wrapper ul li.gfield .gfield_label, .gform_widget .gform_wrapper ul li.gfield .gfield_label {
   display: none;
 }
 
-.st-gform-wrapper .gform_wrapper li.gfield.gfield_error.gfield_contains_required div.ginput_container {
+.st-gform-wrapper .gform_wrapper li.gfield.gfield_error.gfield_contains_required div.ginput_container, .gform_widget .gform_wrapper li.gfield.gfield_error.gfield_contains_required div.ginput_container {
   margin-top: 0;
 }
 
-.st-gform-wrapper .gform_wrapper ul li.gfield .ginput_container {
+.st-gform-wrapper .gform_wrapper ul li.gfield .ginput_container, .gform_widget .gform_wrapper ul li.gfield .ginput_container {
   margin-top: 0;
 }
 
-.st-gform-wrapper .gform_wrapper ul li.gfield .ginput_container input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
-  max-width: 270px;
+.st-gform-wrapper .gform_wrapper ul li.gfield .ginput_container input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), .gform_widget .gform_wrapper ul li.gfield .ginput_container input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
   height: 44px;
   padding: 0 1.1875rem;
 }
 
-.st-gform-wrapper .gform_wrapper ul li.gfield .ginput_container.ginput_container_textarea {
+.st-gform-wrapper .gform_wrapper ul li.gfield .ginput_container.ginput_container_textarea, .gform_widget .gform_wrapper ul li.gfield .ginput_container.ginput_container_textarea {
   padding-top: 1.875rem;
 }
 
-.st-gform-wrapper .gform_wrapper ul li.gfield .ginput_container textarea {
-  max-width: 570px;
+.st-gform-wrapper .gform_wrapper ul li.gfield .ginput_container textarea, .gform_widget .gform_wrapper ul li.gfield .ginput_container textarea {
   height: 179px;
   padding: 0.8125rem 1.1875rem;
   background: #FFFFFF;
 }
 
-.st-gform-wrapper .gform_wrapper li.gfield.gfield_error, .gform_wrapper li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
+.st-gform-wrapper .gform_wrapper.gform_validation_error .top_label li.gfield.gfield_error.gf_left_half, .gform_widget .gform_wrapper.gform_validation_error .top_label li.gfield.gfield_error.gf_left_half {
+  padding-right: 15px;
+}
+.st-gform-wrapper .gform_wrapper.gform_validation_error .top_label li.gfield.gfield_error.gf_right_half, .gform_widget .gform_wrapper.gform_validation_error .top_label li.gfield.gfield_error.gf_right_half {
+  padding-right: 0;
+}
+.st-gform-wrapper .gform_wrapper.gform_validation_error .top_label li.gfield.gfield_error.gf_left_half, .gform_widget .gform_wrapper.gform_validation_error .top_label li.gfield.gfield_error.gf_left_half,
+.st-gform-wrapper .gform_wrapper.gform_validation_error .top_label li.gfield.gfield_error.gf_right_half,
+.gform_widget .gform_wrapper.gform_validation_error .top_label li.gfield.gfield_error.gf_right_half {
+  max-width: 50%;
+  margin: 0;
+}
+
+.st-gform-wrapper .gform_wrapper.gform_validation_error .gform_body ul li.gfield.gfield_error:not(.gf_left_half):not(.gf_right_half), .gform_widget .gform_wrapper.gform_validation_error .gform_body ul li.gfield.gfield_error:not(.gf_left_half):not(.gf_right_half) {
+  max-width: 100% !important;
+  width: 100%;
+  margin-top: 0;
+}
+
+.st-gform-wrapper .gform_wrapper li.gfield.gfield_error, .gform_widget .gform_wrapper li.gfield.gfield_error, .gform_wrapper li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
   background-color: transparent;
   margin-bottom: 0 !important;
   border-top: 0px solid #C89797;
@@ -4269,25 +4364,24 @@ ul.plan-features {
   padding-top: 0;
 }
 
-.st-gform-wrapper .gform_wrapper div.validation_error {
+.st-gform-wrapper .gform_wrapper div.validation_error, .gform_widget .gform_wrapper div.validation_error {
   display: none;
 }
 
-.st-gform-wrapper .gform_wrapper .field_description_below .gfield_description {
+.st-gform-wrapper .gform_wrapper .field_description_below .gfield_description, .gform_widget .gform_wrapper .field_description_below .gfield_description {
   padding-top: 0;
 }
 
-.st-gform-wrapper .gform_wrapper .validation_message {
+.st-gform-wrapper .gform_wrapper .validation_message, .gform_widget .gform_wrapper .validation_message {
   color: red;
 }
 
-.st-gform-wrapper .gform_wrapper .gform_footer {
+.st-gform-wrapper .gform_wrapper .gform_footer, .gform_widget .gform_wrapper .gform_footer {
   margin: 0;
   padding-top: 1.25rem;
-  max-width: 570px;
 }
 
-.st-gform-wrapper .gform_wrapper .gform_footer input[type=submit] {
+.st-gform-wrapper .gform_wrapper .gform_footer input[type=submit], .gform_widget .gform_wrapper .gform_footer input[type=submit] {
   float: right;
   width: 170px;
   height: 50px;
@@ -4302,13 +4396,13 @@ ul.plan-features {
   padding: 0;
 }
 
-.st-gform-wrapper .gform_wrapper .gform_footer input[type=submit]:hover {
+.st-gform-wrapper .gform_wrapper .gform_footer input[type=submit]:hover, .gform_widget .gform_wrapper .gform_footer input[type=submit]:hover {
   box-shadow: none;
 }
 
-.st-gform-wrapper .gform_wrapper.gf_browser_chrome .gform_footer {
-  width: -webkit-calc(100% + 15px);
-  width: calc(100% + 15px);
+.st-gform-wrapper .gform_wrapper.gf_browser_chrome .gform_body, .gform_widget .gform_wrapper.gf_browser_chrome .gform_body, .st-gform-wrapper .gform_wrapper.gf_browser_chrome .gform_footer, .gform_widget .gform_wrapper.gf_browser_chrome .gform_footer {
+  width: -webkit-calc(100%);
+  width: calc(100%);
 }
 
 /*--------------------------------------------------------------
@@ -4322,6 +4416,21 @@ ul.plan-features {
 @media only screen and (max-width: 1025px) {
   .blank-theme-main-navigation ul {
     display: none;
+  }
+
+  .site-branding {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+  }
+
+  .menu-toggle {
+    position: absolute;
+  }
+
+  .site-header {
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 }
 @media only screen and (max-width: 1024px) {

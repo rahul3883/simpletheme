@@ -1,0 +1,16 @@
+//markup errors in html validator
+//what is kirki in admin folder?
+//slider content height fix for mobile
+//text-domain, additional css like editor-css, etc.
+//customizer ui
+////logo not changing etc
+//add meta box(banner) for perticular template
+//gravityforms deactivated then should not show in home page
+//make widget for footer
+//translation functions
+//sidebar position in customizer
+//customizer default changes
+//fix theme name, template name, etc
+//make custom widget ui better
+
+rsync -azP --exclude 'node_modules' --exclude 'sass' --exclude '.sass-cache' ./ www-data@rtcamp.info:rahuls1.rtcamp.info/htdocs/wp-content/themes/simpletheme1/ --delete

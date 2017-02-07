@@ -8,4 +8,19 @@
 	.blank-theme-main-navigation ul {
 		display: none;
 	}
+
+	.site-branding {
+		width: 100%;
+		margin: 0;
+		text-align: center;
+	}
+
+	.menu-toggle {
+		position: absolute;
+	}
+
+	.site-header {
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
 }

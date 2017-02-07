@@ -24,10 +24,12 @@
 
 	<header id="masthead" class="site-header row-container" role="banner">
 		<div class="site-branding column shrink">
-			<?php echo simple_theme_site_branding(); ?>
+			<?php echo blank_theme_site_branding(); ?>
 		</div><!-- .site-branding -->
 
-		<a id="primary-nav-button" class="blank-theme-mobile-nav-button menu-toggle" href="#site-navigation"><?php esc_html_e( 'Mobile Menu' , 'blank-theme' ); ?></a>
+		<a id="primary-nav-button" class="blank-theme-mobile-nav-button menu-toggle" href="#site-navigation">
+			<i class="fa fa-bars"></i>
+		</a>
 
 		<nav id="site-navigation" class="blank-theme-main-navigation column" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'blank-theme' ); ?>">
 
@@ -44,5 +46,4 @@
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
-
-	<div id="content" class="site-content">
+	<div id="content" class="site-content <?php  ! is_front_page() ? print( 'row' ) : false; ?>">

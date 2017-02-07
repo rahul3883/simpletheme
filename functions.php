@@ -27,7 +27,19 @@ if ( ! defined( 'BLANK_THEME_IS_DEV' ) ) {
 	define( 'BLANK_THEME_IS_DEV', true );
 }
 if ( ! defined( 'BLANK_THEME_IMAGE_DIRECTORY' ) ) {
-	define( 'BLANK_THEME_IMAGE_DIRECTORY', BLANK_THEME_TEMP_URI . '/images/slicing/SlicingHomepage' );
+	define( 'BLANK_THEME_IMAGE_DIRECTORY', BLANK_THEME_TEMP_URI . '/images' );
+}
+if ( ! defined( 'BLANK_THEME_SLIDER_LEFT_ARROW' ) ) {
+	define( 'BLANK_THEME_SLIDER_LEFT_ARROW', BLANK_THEME_IMAGE_DIRECTORY . '/arrow-left.png' );
+}
+if ( ! defined( 'BLANK_THEME_SLIDER_RIGHT_ARROW' ) ) {
+	define( 'BLANK_THEME_SLIDER_RIGHT_ARROW', BLANK_THEME_IMAGE_DIRECTORY . '/arrow-right.png' );
+}
+if ( ! defined( 'BLANK_THEME_SLIDER_LEFT_HOVER_ARROW' ) ) {
+	define( 'BLANK_THEME_SLIDER_LEFT_HOVER_ARROW', BLANK_THEME_IMAGE_DIRECTORY . '/arrow-left-hover.png' );
+}
+if ( ! defined( 'BLANK_THEME_SLIDER_RIGHT_HOVER_ARROW' ) ) {
+	define( 'BLANK_THEME_SLIDER_RIGHT_HOVER_ARROW', BLANK_THEME_IMAGE_DIRECTORY . '/arrow-right-hover.png' );
 }
 
 do_action( 'blank_theme_before' );
@@ -164,7 +176,7 @@ function blank_theme_widgets_init() {
 		'name'          => esc_html__( 'Footer', 'blank-theme' ),
 		'id'            => 'sidebar-2',
 		'description'   => '',
-		'before_widget' => '<div id="%1$s" class="widget widget-footer column %2$s">',
+		'before_widget' => '<div id="%1$s" class="widget widget-footer large-6 medium-6 small-12 column footer-column %2$s">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h4 class="widget-title">',
 		'after_title'   => '</h4>',
@@ -173,8 +185,8 @@ function blank_theme_widgets_init() {
 	register_sidebar( array(
 		'name'					=> esc_html__( 'Pages', 'blank-theme' ),
 		'id'						=> 'sidebar-widget-pages',
-		'description'		=> 'sidebar containing widget area to display Pages',
-		'before_widget'	=> '<div id="%1$s" class="st-widget-pages large-3 column %2$s">',
+		'description'		=> '',
+		'before_widget'	=> '<div id="%1$s" class="st-widget-pages large-3 medium-6 small-12 column %2$s">',
 		'after_widget'	=> '</div>',
 		'before_title'	=> '<h4 class="widget-pages-title">',
 		'after_title'		=> '</h4>',
@@ -183,8 +195,8 @@ function blank_theme_widgets_init() {
 	register_sidebar( array(
 		'name'					=> esc_html__( 'Pricing', 'blank-theme' ),
 		'id'						=> 'sidebar-widget-pricing',
-		'description'		=> 'sidebar containing widget area to display Pricing',
-		'before_widget'	=> '<div id="%1$s" class="st-widget-pricing large-4 column %2$s">',
+		'description'		=> '',
+		'before_widget'	=> '<div id="%1$s" class="st-widget-pricing large-4 medium-4 small-12 column %2$s">',
 		'after_widget'	=> '</div>',
 		'before_title'	=> '<h4 class="widget-pricing-title">',
 		'after_title'		=> '</h4>',
@@ -257,66 +269,113 @@ do_action( 'blank_theme_after' );
 //SimpleTheme Modifications
 function simpletheme_scripts() {
 	wp_enqueue_style( 'open-sans-style', 'https://fonts.googleapis.com/css?family=Open+Sans' );
-	//wp_enqueue_style( 'open-sans-style', get_template_directory_uri() . '/sass/css/open-sans.css' );
+	wp_enqueue_style( 'font-awsome-icons', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' );
 }
 
 //add custom Widgets
-include( get_template_directory() . '/widgets/widgets.php' );
+include( get_template_directory() . '/inc/widgets/widgets.php' );
 
 if ( function_exists( 'add_image_size' ) ) {
+	add_image_size( 'st-slider', 1440, 566, true );
 	add_image_size( 'st-pages', 99, 99, false );
 	add_image_size( 'st-portfolio', 370, 314, true );
 	add_image_size( 'st-team', 201, 201, true );
 }
 
+function get_theme_options() {
+	global $st_customizer;
+
+	$GLOBALS['st_theme_options'] = array(
+		'contact_head'						=> get_theme_mod( 'contact_head', $st_customizer['contact_head'] ),
+		'contact_text'						=> get_theme_mod( 'contact_text', $st_customizer['contact_text'] ),
+		'link_facebook'						=> get_theme_mod( 'link_facebook', $st_customizer['link_facebook'] ),
+		'link_twitter'						=> get_theme_mod( 'link_twitter', $st_customizer['link_twitter'] ),
+		'link_google_plus'				=> get_theme_mod( 'link_google_plus', $st_customizer['link_google_plus'] ),
+		'contact_website_name'		=> get_theme_mod( 'contact_website_name', $st_customizer['contact_website_name'] ),
+		'contact_website_link'		=> get_theme_mod( 'contact_website_link', $st_customizer['contact_website_link'] ),
+		'contact_number'					=> get_theme_mod( 'contact_number', $st_customizer['contact_number'] ),
+		'contact_email'						=> get_theme_mod( 'contact_email', $st_customizer['contact_email'] ),
+		'toogle_cpt'							=> array(
+			'st_slider'					=> get_theme_mod( 'toogle_st_slider', true ),
+			'st_portfolio'			=> get_theme_mod( 'toogle_st_portfolio', true ),
+			'st_team'						=> get_theme_mod( 'toogle_st_team', true ),
+			'st_testimonials'		=> get_theme_mod( 'toogle_st_testimonials', true ),
+		),
+	);
+
+}
+
+get_theme_options();
+
 function st_custom_post_type() {
-	register_post_type( 'st_slider', [
-		'labels'		  => [
-			'name'					=> __( 'Slider', 'blank-theme' ),
-			'singular_name'	=> __( 'Slider', 'blank-theme' ),
-		],
-		'supports'	  => [ 'title', 'editor', 'thumbnail' ],
-		'public'		  => true,
-		'has_archive'	=> true,
-	] );
 
-	register_post_type( 'st_portfolio', [
-		'labels'			=> [
-			'name'					=> __( 'Portfolio', 'blank-theme' ),
-			'singular_name'	=> __( 'Portfolio', 'blank-theme' ),
-			'add_new'				=> __( 'Add New Portfolio', 'blank-theme' ),
-		],
-		'supports'		=> [ 'title', 'editor', 'thumbnail' ],
-		'public'			=> true,
-		'has_archive'	=> true,
-	] );
+	global $st_theme_options;
+	$toogle_cpt = $st_theme_options['toogle_cpt'];
 
-	register_post_type( 'st_team', [
-		'labels'			=> [
-			'name'					=> __( 'The Team', 'blank-theme' ),
-			'singular_name'	=> __( 'Member', 'blank-theme' ),
-			'add_new'				=> __( 'Add New Member', 'blank-theme' ),
-		],
-		'supports'		=> [ 'title', 'excerpt', 'thumbnail' ],
-		'public'			=> true,
-		'has_archive'	=> true,
-	] );
+	if ( 1 == $toogle_cpt['st_slider'] ) {
 
-	register_post_type( 'st_testimonials', [
-		'labels'		  => [
-			'name'					=> __( 'Testimonials', 'blank-theme' ),
-			'singular_name'	=> __( 'Testimonial', 'blank-theme' ),
-		],
-		'supports'	  => [ 'excerpt' ],
-		'public'		  => true,
-		'has_archive'	=> true,
-	] );
+		register_post_type( 'st_slider', [
+			'labels'		  => [
+				'name'					=> __( 'Slider', 'blank-theme' ),
+				'singular_name'	=> __( 'Slider', 'blank-theme' ),
+			],
+			'supports'	  => [ 'title', 'editor', 'thumbnail' ],
+			'public'		  => true,
+			'has_archive'	=> true,
+		] );
+
+	}
+
+	if ( 1 == $toogle_cpt['st_portfolio'] ) {
+
+		register_post_type( 'st_portfolio', [
+			'labels'			=> [
+				'name'					=> __( 'Portfolio', 'blank-theme' ),
+				'singular_name'	=> __( 'Portfolio', 'blank-theme' ),
+				'add_new'				=> __( 'Add New Portfolio', 'blank-theme' ),
+			],
+			'supports'		=> [ 'title', 'editor', 'thumbnail' ],
+			'public'			=> true,
+			'has_archive'	=> true,
+		] );
+
+	}
+
+	if ( 1 == $toogle_cpt['st_team'] ) {
+
+		register_post_type( 'st_team', [
+			'labels'			=> [
+				'name'					=> __( 'The Team', 'blank-theme' ),
+				'singular_name'	=> __( 'Member', 'blank-theme' ),
+				'add_new'				=> __( 'Add New Member', 'blank-theme' ),
+			],
+			'supports'		=> [ 'title', 'excerpt', 'thumbnail' ],
+			'public'			=> true,
+			'has_archive'	=> true,
+		] );
+
+	}
+
+	if ( 1 == $toogle_cpt['st_testimonials'] ) {
+
+		register_post_type( 'st_testimonials', [
+			'labels'		  => [
+				'name'					=> __( 'Testimonials', 'blank-theme' ),
+				'singular_name'	=> __( 'Testimonial', 'blank-theme' ),
+			],
+			'supports'	  => [ 'excerpt' ],
+			'public'		  => true,
+			'has_archive'	=> true,
+		] );
+
+	}
+
 }
 
 add_action( 'init', 'st_custom_post_type' );
 
 //add meta boxes
-include( get_template_directory() . '/meta-boxes/meta-boxes.php' );
+include( get_template_directory() . '/inc/meta-boxes/meta-boxes.php' );
 
-//add customizer filed
+//add customizer file
 include( get_template_directory() . '/st-customizer.php' );

@@ -6,58 +6,66 @@
  *
  * @package Blank Theme
  */
-?>
 
-<section class="st-testimonials">
+$args = array(
+	'post_type'				=> 'st_testimonials',
+	'posts_per_page'	=> -1,
+);
 
-	<header	class="st-page-header">
-		<h2 id="st-testimonial-header" class="st-page-title"><?php _e( 'What Clients Say', 'blank-theme' ); ?></h2>
-	</header>
+$testimonials = new WP_Query( $args );
 
-	<div id="st-slider-testimonial-wrapper" class="st-page-content row">
+if ( $testimonials->have_posts() ) {
+	?>
 
-		<div class="large-2 medium-2 small-2 column">
-			<img id="slider-tm-arrow-left" class="slider-arrow arrow-left">
-		</div>
+	<div id="st-testimonials-container" class="st-section-container">
+		<div class="st-content-wrapper">
 
-		<div id="st-slider-testimonial" class="large-8 medium-8 small-8 column">
+			<section class="st-testimonials">
 
-			<?php
+				<header	class="st-page-header">
+					<h2 id="st-testimonial-header" class="st-page-title"><?php _e( 'What Clients Say', 'blank-theme' ); ?></h2>
+				</header>
 
-			$args = array(
-				'post_type'				=> 'st_testimonials',
-				'posts_per_page'	=> -1,
-			);
+				<div id="st-slider-testimonial-wrapper" class="st-page-content row">
 
-			$testimonials = new WP_Query( $args );
+					<div class="large-2 medium-2 small-2 column">
+						<img src="<?php echo BLANK_THEME_SLIDER_LEFT_ARROW; ?>" id="slider-tm-arrow-left" class="slider-arrow arrow-left" alt="Left" onmouseover="this.src='<?php echo BLANK_THEME_SLIDER_LEFT_HOVER_ARROW; ?>'" onmouseout="this.src='<?php echo BLANK_THEME_SLIDER_LEFT_ARROW; ?>'">
+					</div>
 
-			if ( $testimonials->have_posts() ) {
-				while ( $testimonials->have_posts() ) {
-					$testimonials->the_post();
-					?>
+					<div id="st-slider-testimonial" class="large-8 medium-8 small-8 column">
 
-					<div id="st-slider-tm-content">
+						<?php
 
-							<p class="st-testimonial-text">
-								<?php echo wp_kses_post( wp_trim_words( get_the_excerpt(), 40 ) ); ?>
-							</p>
-							<p class="st-testimonial-name">
-								<?php echo get_post_meta( get_the_ID(), '_testimonial_name_key', true ); ?>
-							</p>
+						while ( $testimonials->have_posts() ) {
+							$testimonials->the_post();
+							?>
+
+								<div class="st-slider-tm-content">
+
+										<p class="st-testimonial-text">
+											<?php echo wp_kses_post( wp_trim_words( get_the_excerpt(), 40 ) ); ?>
+										</p>
+										<p class="st-testimonial-name">
+											<?php echo get_post_meta( get_the_ID(), '_testimonial_name_key', true ); ?>
+										</p>
+
+								</div>
+
+								<?php
+						}
+						?>
 
 					</div>
 
-					<?php
-				}
-			}
-			?>
+					<div class="large-2 medium-2 small-2 column">
+						<img src="<?php echo BLANK_THEME_SLIDER_RIGHT_ARROW; ?>" id="slider-tm-arrow-right" class="slider-arrow arrow-right" alt="Right" onmouseover="this.src='<?php echo BLANK_THEME_SLIDER_RIGHT_HOVER_ARROW; ?>'" onmouseout="this.src='<?php echo BLANK_THEME_SLIDER_RIGHT_ARROW; ?>'">
+					</div>
+
+				</div>
+
+			</section>
 
 		</div>
-
-		<div class="large-2 medium-2 small-2 column">
-			<img id="slider-tm-arrow-right" class="slider-arrow arrow-right">
-		</div>
-
 	</div>
 
-</section>
+<?php }

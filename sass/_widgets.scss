@@ -24,7 +24,8 @@
 }
 
 .st-widget-pages {
-	text-align: center;
+	padding-top: rem-calc(35);
+	padding-bottom: rem-calc(35);
 }
 
 .st-widget-post-image {
@@ -58,7 +59,8 @@
 
 //Pricing Widget
 .st-widget-pricing {
-
+	padding-top: rem-calc(40);
+	padding-bottom: rem-calc(40);
 }
 
 .plan-name-wrapper {

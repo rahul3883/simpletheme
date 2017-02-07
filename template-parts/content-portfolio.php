@@ -6,53 +6,58 @@
  *
  * @package Blank Theme
  */
-?>
 
-<section class="st-portfolio">
-	<header	class="st-page-header">
-		<?php
-		$st_portfolio_obj = get_post_type_object( 'st_portfolio' );
-		?>
+$args = array(
+	'post_type'				=> 'st_portfolio',
+	'posts_per_page'	=> 6,
+);
 
-		<p class="st-page-title"><?php echo $st_portfolio_obj->labels->name; ?></p>
-	</header>
+$portfolio_posts = new WP_Query( $args );
 
-	<div class="st-page-content row">
-		<?php
+if ( $portfolio_posts->have_posts() ) {
+	?>
 
-		$args = array(
-			'post_type'				=> 'st_portfolio',
-			'posts_per_page'	=> 6,
-		);
+	<div id="st-portfolio-container" class="st-section-container">
+		<div class="st-content-wrapper">
 
-		$portfolio_posts = new WP_Query( $args );
+			<section class="st-portfolio">
+				<header	class="st-page-header">
+					<?php
+					$st_portfolio_obj = get_post_type_object( 'st_portfolio' );
+					?>
 
-		if ( $portfolio_posts->have_posts() ) {
-			while ( $portfolio_posts->have_posts() ) {
-				$portfolio_posts->the_post();
-				?>
+					<h2 class="st-page-title line-height"><?php echo $st_portfolio_obj->labels->name; ?></h2>
+				</header>
 
-				<div class="large-4 column st-portfolio-outer">
-					<div class="st-portfolio-content-wrapper">
-						<?php the_post_thumbnail( 'st-portfolio', array( 'class' => 'st-portfolio-thumbnail' ) ); ?>
-						<a href="<?php the_permalink(); ?>">
-							<div class="st-portfolio-post-title-wrapper">
-								<?php helper_span(); ?>
-								<p class="st-portfolio-post-title v-align-middle"><?php the_title(); ?></p>
+				<div class="st-page-content row">
+					<?php
+
+					while ( $portfolio_posts->have_posts() ) {
+						$portfolio_posts->the_post();
+						?>
+
+							<div class="large-4 medium-6 small-12 column st-portfolio-outer">
+								<div class="st-portfolio-content-wrapper">
+									<?php the_post_thumbnail( 'st-portfolio', array( 'class' => 'st-portfolio-thumbnail' ) ); ?>
+									<a href="<?php the_permalink(); ?>">
+										<div class="st-portfolio-post-title-wrapper">
+											<?php helper_span(); ?>
+											<p class="st-portfolio-post-title v-align-middle"><?php the_title(); ?></p>
+										</div>
+									</a>
 							</div>
-						</a>
+							</div>
+
+						<?php } ?>
+
+						<div class="large-12 medium-12 small-12 column">
+							<a href="<?php echo get_post_type_archive_link( 'st_portfolio' ); ?>" class="st-portfolio-button">See all works</a>
+						</div>
+
 				</div>
-				</div>
+			</section>
 
-			<?php } ?>
-
-			<div class="large-12 medium-12 small-12 column">
-				<a href="<?php echo get_post_type_archive_link( 'st_portfolio' ); ?>" class="st-portfolio-button">See all works</a>
-			</div>
-			<?php
-		} else {
-
-		}
-			?>
+		</div>
 	</div>
-</section>
+
+<?php }

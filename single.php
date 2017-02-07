@@ -7,7 +7,7 @@
 get_header();
 ?>
 
-<div id="primary" class="<?php blank_theme_primary_classes(); ?>">
+<div atrf="aaa" id="primary" class="<?php blank_theme_primary_classes(); ?>">
 	<main id="main" class="site-main" role="main">
 
 		<?php

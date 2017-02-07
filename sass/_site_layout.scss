@@ -15,7 +15,7 @@
 
 
 .st-widget-pages-container {
-	padding: rem-calc(105) 0;
+	padding: rem-calc(70) 0;
 }
 
 //Portfolio
@@ -37,6 +37,9 @@
 	font-size: rem-calc(42);
 	color: $color_content;
 	font-weight: $font_regular;
+}
+.st-page-title.line-height {
+	line-height: 1.8;
 }
 
 .st-portfolio-outer {
@@ -67,6 +70,10 @@
 	margin: 0;
 	font-size: rem-calc(50);
 	text-shadow: rgba(110, 110, 110, 0.5) 0 0 20px;
+	max-width: 95%;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
 }
 
 .st-portfolio-content-wrapper:hover .st-portfolio-post-title-wrapper {
@@ -129,8 +136,8 @@
 
 #st-pricing-container {
 	background: $color__background-screen;
-	padding-top: rem-calc(118);
-	padding-bottom: rem-calc(100);
+	padding-top: rem-calc(78);
+	padding-bottom: rem-calc(60);
 }
 
 
