@@ -13,9 +13,6 @@ jQuery( function( $ ) {
 			// Enable to animate child menu
 			// this.animateMenu();
 
-			// Enable to trigger slider
-			this.createSlider();
-
 			this.fixAdminBar();
 			this.events();
 
@@ -23,34 +20,6 @@ jQuery( function( $ ) {
 
 		events: function() {
 
-		},
-
-		createSlider: function() {
-			if ( $( '#blank-theme-slider' ).length ) {
-				$( '#blank-theme-slider' ).slick( {
-					fade: false,
-					cssEase: 'linear',
-					infinite: true,
-				  slidesToShow: 1,
-				  slidesToScroll: 1,
-					autoplay: false,
- 					autoplaySpeed: 3000,
-					prevArrow: $('#slider-arrow-left'),
-					nextArrow: $('#slider-arrow-right')
-				} );
-			}
-
-			if ( $( '#st-slider-testimonial' ).length ) {
-				$( '#st-slider-testimonial' ).slick( {
-					infinite: true,
-				  slidesToShow: 1,
-				  slidesToScroll: 1,
-					autoplay: false,
- 					autoplaySpeed: 2000,
-					prevArrow: $('#slider-tm-arrow-left'),
-					nextArrow: $('#slider-tm-arrow-right')
-				} );
-			}
 		},
 
 		fixAdminBar: function() {

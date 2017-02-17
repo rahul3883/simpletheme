@@ -8,8 +8,8 @@
  */
 
 $args = array(
-	'post_type'				=> 'st_portfolio',
-	'posts_per_page'	=> 6,
+	'post_type'			=> 'sp_portfolio',
+	'posts_per_page'    => 6,
 );
 
 $portfolio_posts = new WP_Query( $args );
@@ -23,7 +23,7 @@ if ( $portfolio_posts->have_posts() ) {
 			<section class="st-portfolio">
 				<header	class="st-page-header">
 					<?php
-					$st_portfolio_obj = get_post_type_object( 'st_portfolio' );
+					$st_portfolio_obj = get_post_type_object( 'sp_portfolio' );
 					?>
 
 					<h2 class="st-page-title line-height"><?php echo $st_portfolio_obj->labels->name; ?></h2>
@@ -51,7 +51,7 @@ if ( $portfolio_posts->have_posts() ) {
 						<?php } ?>
 
 						<div class="large-12 medium-12 small-12 column">
-							<a href="<?php echo get_post_type_archive_link( 'st_portfolio' ); ?>" class="st-portfolio-button">See all works</a>
+							<a href="<?php echo get_post_type_archive_link( 'sp_portfolio' ); ?>" class="st-portfolio-button">See all works</a>
 						</div>
 
 				</div>

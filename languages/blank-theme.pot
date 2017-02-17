@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Simple Theme 1.0.0\n"
 "Report-Msgid-Bugs-To: http://community.rtcamp.com/c/premium-themes\n"
-"POT-Creation-Date: 2017-02-07 12:39:23+00:00\n"
+"POT-Creation-Date: 2017-02-10 07:56:41+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -651,56 +651,24 @@ msgstr ""
 msgid "Simple Theme"
 msgstr ""
 
-#: functions.php:78 header.php:34
+#: functions.php:90 header.php:34
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:154
+#: functions.php:166
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:164
+#: functions.php:176
 msgid "Footer"
 msgstr ""
 
-#: functions.php:174
+#: functions.php:186
 msgid "Pages"
 msgstr ""
 
-#: functions.php:184 inc/widgets/class-st-pricing-widget.php:13
+#: functions.php:196
 msgid "Pricing"
-msgstr ""
-
-#: functions.php:307 functions.php:308
-msgid "Slider"
-msgstr ""
-
-#: functions.php:321 functions.php:322
-msgid "Portfolio"
-msgstr ""
-
-#: functions.php:323
-msgid "Add New Portfolio"
-msgstr ""
-
-#: functions.php:336
-msgid "The Team"
-msgstr ""
-
-#: functions.php:337
-msgid "Member"
-msgstr ""
-
-#: functions.php:338
-msgid "Add New Member"
-msgstr ""
-
-#: functions.php:351
-msgid "Testimonials"
-msgstr ""
-
-#: functions.php:352
-msgid "Testimonial"
 msgstr ""
 
 #: header.php:23
@@ -751,25 +719,8 @@ msgstr ""
 msgid " Next"
 msgstr ""
 
-#: inc/extras.php:240 inc/widgets/class-st-pages-widget.php:42
+#: inc/extras.php:240
 msgid "Read More"
-msgstr ""
-
-#: inc/meta-boxes/class-team-meta-box.php:15
-#: inc/meta-boxes/class-testimonials-meta-box.php:36
-msgid "Designation"
-msgstr ""
-
-#: inc/meta-boxes/class-test-meta-box.php:16
-msgid "Test Text"
-msgstr ""
-
-#: inc/meta-boxes/class-testimonials-meta-box.php:13
-msgid "Person Information"
-msgstr ""
-
-#: inc/meta-boxes/class-testimonials-meta-box.php:31
-msgid "Name"
 msgstr ""
 
 #: inc/template-tags.php:42
@@ -792,87 +743,6 @@ msgstr ""
 
 #: inc/template-tags.php:72 template-parts/content-page.php:25
 msgid "Edit"
-msgstr ""
-
-#: inc/widgets/class-st-contactus-widget.php:8
-msgid "Contact Details Widget"
-msgstr ""
-
-#: inc/widgets/class-st-contactus-widget.php:13
-msgid "Contact Us"
-msgstr ""
-
-#: inc/widgets/class-st-contactus-widget.php:75
-msgid "Head"
-msgstr ""
-
-#: inc/widgets/class-st-contactus-widget.php:80
-msgid "Text"
-msgstr ""
-
-#: inc/widgets/class-st-contactus-widget.php:85
-msgid "Facebook Link"
-msgstr ""
-
-#: inc/widgets/class-st-contactus-widget.php:90
-msgid "Twitter Link"
-msgstr ""
-
-#: inc/widgets/class-st-contactus-widget.php:95
-msgid "Google Plus Link"
-msgstr ""
-
-#: inc/widgets/class-st-contactus-widget.php:100
-msgid "Website Name"
-msgstr ""
-
-#: inc/widgets/class-st-contactus-widget.php:105
-msgid "Website Link"
-msgstr ""
-
-#: inc/widgets/class-st-contactus-widget.php:110
-msgid "Contact Number"
-msgstr ""
-
-#: inc/widgets/class-st-contactus-widget.php:115
-msgid "Email"
-msgstr ""
-
-#: inc/widgets/class-st-pages-widget.php:8
-msgid "Your site's particular page"
-msgstr ""
-
-#: inc/widgets/class-st-pages-widget.php:13
-#: inc/widgets/class-st-pages-widget.php:68
-msgid "Page"
-msgstr ""
-
-#: inc/widgets/class-st-pricing-widget.php:8
-msgid "SimpleTheme Pricing Widget"
-msgstr ""
-
-#: inc/widgets/class-st-pricing-widget.php:73
-msgid "Color Class"
-msgstr ""
-
-#: inc/widgets/class-st-pricing-widget.php:84
-msgid "Plan Name"
-msgstr ""
-
-#: inc/widgets/class-st-pricing-widget.php:89
-msgid "Price"
-msgstr ""
-
-#: inc/widgets/class-st-pricing-widget.php:94
-msgid "Features"
-msgstr ""
-
-#: inc/widgets/class-st-pricing-widget.php:99
-msgid "Button Text"
-msgstr ""
-
-#: inc/widgets/class-st-pricing-widget.php:104
-msgid "Button Link"
 msgstr ""
 
 #: search.php:16

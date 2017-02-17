@@ -13,11 +13,8 @@ get_header();
 	<main id="main" class="" role="main">
 
 		<?php
-		global $st_theme_options;
-		$toogle_cpt = $st_theme_options['toogle_cpt'];
-
-		if ( 1 == $toogle_cpt['st_slider'] ) {
-			get_template_part( 'template-parts/content', 'slider' );
+		if ( shortcode_exists( 'sp_slider' ) ) {
+			echo do_shortcode( '[sp_slider]' );
 		}
 		?>
 
@@ -32,11 +29,11 @@ get_header();
 		<?php } ?>
 
 		<?php
-		if ( 1 == $toogle_cpt['st_portfolio'] ) {
+		if ( post_type_exists( 'sp_portfolio' ) ) {
 			get_template_part( 'template-parts/content', 'portfolio' );
 		}
 
-		if ( 1 == $toogle_cpt['st_team'] ) {
+		if ( post_type_exists( 'sp_team' ) ) {
 			get_template_part( 'template-parts/content', 'team' );
 		}
 		?>
@@ -52,12 +49,13 @@ get_header();
 		<?php } ?>
 
 		<?php
-		if ( 1 == $toogle_cpt['st_testimonials'] ) {
-			get_template_part( 'template-parts/content', 'testimonials' );
+		if ( shortcode_exists( 'sp_slider' ) ) {
+			echo do_shortcode( '[sp_slider id=1]' );
 		}
 		?>
 
 		<?php
+		/*
 		global $post;
 
 		$custom_query = new WP_Query( array(
@@ -78,7 +76,10 @@ get_header();
 
 			</div>
 
-		<?php } ?>
+		<?php
+        }
+        */
+		?>
 
 	</main><!-- #main -->
 </div><!-- #primary -->

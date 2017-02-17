@@ -8,9 +8,9 @@
  */
 
 $args = array(
-	'post_type'				=> 'st_team',
-	'posts_per_page'	=> 4,
-	'order'						=> 'ASC',
+	'post_type'			=> 'sp_team',
+	'posts_per_page'    => 4,
+	'order'				=> 'ASC',
 );
 
 $team_members = new WP_Query( $args );
@@ -24,7 +24,7 @@ if ( $team_members->have_posts() ) {
 			<section class="st-team">
 				<header	class="st-page-header">
 					<?php
-					$st_team_obj = get_post_type_object( 'st_team' );
+					$st_team_obj = get_post_type_object( 'sp_team' );
 					?>
 
 					<h2 class="st-page-title line-height"><?php echo $st_team_obj->labels->name; ?></h2>
